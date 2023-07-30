@@ -1,0 +1,30 @@
+<svg width="428" height="511" viewBox="0 0 428 511" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_647_3679)">
+<circle cx="151.796" cy="151.796" r="151.796" transform="matrix(0.989185 0.146674 -0.464135 0.885765 105.533 48.9759)" fill="white"/>
+<mask id="mask0_647_3679" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="27" y="75" width="317" height="261">
+<circle cx="144.49" cy="144.49" r="141.441" transform="matrix(0.989185 0.146674 -0.464135 0.885765 109.369 56.5197)" fill="white" stroke="#121214" stroke-width="6.09661"/>
+</mask>
+<g mask="url(#mask0_647_3679)">
+<g clip-path="url(#clip0_647_3679)">
+<rect width="379.209" height="821.114" rx="29.2637" transform="matrix(0.994522 0.104528 -0.424357 0.905495 156.957 -103.538)" fill="white"/>
+<rect width="159.731" height="409.692" rx="19.5091" transform="matrix(0.994522 0.104528 -0.424357 0.905495 28.8918 213.167)" fill="#F2F2F3"/>
+<rect width="159.731" height="409.692" rx="19.5091" transform="matrix(0.994522 0.104528 -0.424357 0.905495 207.15 231.902)" fill="#F2F2F3"/>
+<rect width="338.971" height="263.373" rx="19.5091" transform="matrix(0.994522 0.104528 -0.424357 0.905495 148.935 -42.9821)" fill="#F2F2F3"/>
+</g>
+</g>
+</g>
+<defs>
+<filter id="filter0_d_647_3679" x="-229.41" y="-135.457" width="829.286" height="770.099" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="43.8956"/>
+<feGaussianBlur stdDeviation="124.371"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.09 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_647_3679"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_647_3679" result="shape"/>
+</filter>
+<clipPath id="clip0_647_3679">
+<rect width="379.209" height="821.114" rx="29.2637" transform="matrix(0.994522 0.104528 -0.424357 0.905495 156.957 -103.538)" fill="white"/>
+</clipPath>
+</defs>
+</svg>
