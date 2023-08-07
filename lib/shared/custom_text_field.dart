@@ -1,5 +1,6 @@
 import 'package:aquayar_driver/shared/shared.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class CustomTextField extends StatelessWidget {
   final TextEditingController? controller;
@@ -15,10 +16,12 @@ class CustomTextField extends StatelessWidget {
   final TextInputAction textInputAction;
   final Color? borderColor;
   final Color? hintColor;
+  final Color? textColor;
   final TextCapitalization textCapitalization;
   final int maxLines;
   final bool readOnly;
   final VoidCallback? onTap;
+  final List<TextInputFormatter>? formatters;
   final bool obscureText;
 
   const CustomTextField({
@@ -32,12 +35,14 @@ class CustomTextField extends StatelessWidget {
     this.validator,
     this.keyboardType,
     this.hintStyle,
+    this.formatters,
     this.textInputAction = TextInputAction.next,
     this.centeredHint = false,
     this.readOnly = false,
     this.obscureText = false,
     this.borderColor,
     this.hintColor,
+    this.textColor,
     this.maxLines = 1,
     this.onTap,
     this.textCapitalization = TextCapitalization.none,
@@ -60,18 +65,16 @@ class CustomTextField extends StatelessWidget {
           ),
         },
         SizedBox(
-          height: 46.h,
+          height: 40.h,
           child: TextFormField(
             obscureText: obscureText,
             onTap: onTap,
             readOnly: readOnly,
             maxLines: maxLines,
+            inputFormatters: formatters,
             textCapitalization: textCapitalization,
-            cursorColor: borderColor,
-            style: TextStyle(
-              fontSize: 14.sp,
-              color: hintColor ?? Theme.of(context).primaryColorLight,
-            ),
+            cursorColor: Palette.aquayarBlack,
+            style: TextStyle(fontSize: 14.sp, color: textColor),
             textInputAction: textInputAction,
             autovalidateMode: AutovalidateMode.disabled,
             textAlign: centeredHint! ? TextAlign.center : TextAlign.start,
@@ -85,6 +88,7 @@ class CustomTextField extends StatelessWidget {
               hintText: hint,
               suffixIcon: suffix,
               prefixIcon: prefix,
+              contentPadding: EdgeInsets.symmetric(horizontal: 20.w),
               hintStyle: hintStyle ??
                   TextStyle(
                       fontSize: 14.sp, color: hintColor ?? Palette.lightGrey),

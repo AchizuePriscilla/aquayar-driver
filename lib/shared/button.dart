@@ -74,7 +74,7 @@ class Button extends StatelessWidget {
         backgroundColor: outlined
             ? null
             : MaterialStateProperty.resolveWith(
-                (states) => color ?? (!active ? null : Palette.aquayarBlue),
+                (states) => color ?? (!active ? null : Palette.aquayarBlack),
               ),
         side: outlined
             ? MaterialStateProperty.resolveWith(

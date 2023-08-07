@@ -28,7 +28,7 @@ class CustomAppBar extends AppBar {
                     icon: Icon(
                       Icons.arrow_back,
                       size: 20.h,
-                      color: Palette.aquayarBlue,
+                      color: Palette.aquayarBlack,
                     ),
                   ),
                 )

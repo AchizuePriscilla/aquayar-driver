@@ -25,9 +25,7 @@ class CustomPageIndicator extends StatelessWidget {
         width: _kIndicatorWidth,
         height: _kIndicatorHeight,
         decoration: BoxDecoration(
-            color: index == currentPage
-                ? Palette.aquayarBlue
-                : color,
+            color: index == currentPage ? Palette.aquayarBlack : color,
             borderRadius: BorderRadius.circular(10)),
         child: InkWell(
           onTap: () => onPageSelected(index),
@@ -35,7 +33,6 @@ class CustomPageIndicator extends StatelessWidget {
       ),
     );
   }
-
 
   @override
   Widget build(BuildContext context) {

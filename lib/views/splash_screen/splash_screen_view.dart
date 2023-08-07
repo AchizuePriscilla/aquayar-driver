@@ -22,7 +22,7 @@ class _SplashScreenViewState extends State<SplashScreenView> {
   @override
   Widget build(BuildContext context) {
     return ResponsiveWidget(
-      backgroundColor: Palette.aquayarBlue,
+      backgroundColor: Palette.aquayarBlack,
       builder: (context, size) {
         return SizedBox(
           height: size.height,

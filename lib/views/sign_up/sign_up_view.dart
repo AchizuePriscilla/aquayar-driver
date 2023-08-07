@@ -1,9 +1,29 @@
 import 'package:aquayar_driver/shared/shared.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-class SignUpView extends StatelessWidget {
+class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
+
+  @override
+  State<SignUpView> createState() => _SignUpViewState();
+}
+
+var maskFormatter = MaskTextInputFormatter(
+    initialText: "+",
+    mask: '###-###-###-####',
+    type: MaskAutoCompletionType.eager,
+    filter: {"#": RegExp(r'[0-9]')});
+bool _hidePassword = true;
+
+class _SignUpViewState extends State<SignUpView> {
+  void toggleVisibility() {
+    setState(() {
+      _hidePassword = !_hidePassword;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,21 +89,47 @@ class SignUpView extends StatelessWidget {
                               keyboardType: TextInputType.emailAddress,
                             ),
                             const CustomSpacer(
-                              flex: 1,
+                              flex: 2,
                             ),
-                            const CustomTextField(
+                            CustomTextField(
                               keyboardType: TextInputType.phone,
+                              formatters: [maskFormatter],
                               label: "Phone number",
-                            ),
-                            const CustomSpacer(
-                              flex: 1,
-                            ),
-                            const CustomTextField(
-                              obscureText: true,
-                              label: "Choose a password",
+                              prefix: Container(
+                                width: 45.w,
+                                margin: EdgeInsets.only(right: 10.w),
+                                child: Row(
+                                  children: [
+                                    const Spacer(),
+                                    SvgPicture.asset(
+                                      "assets/svgs/flag.svg",
+                                      height: 15.h,
+                                      width: 20.w,
+                                      fit: BoxFit.scaleDown,
+                                    ),
+                                    const Spacer(),
+                                    Container(
+                                      height: 40.h,
+                                      width: 1,
+                                      color: Palette.lightGrey,
+                                    ),
+                                  ],
+                                ),
+                              ),
                             ),
                             const CustomSpacer(
                               flex: 2,
+                            ),
+                            CustomTextField(
+                              obscureText: _hidePassword,
+                              label: "Choose a password",
+                              suffix: PasswordVisibilityIcon(
+                                onPressed: toggleVisibility,
+                                value: _hidePassword,
+                              ),
+                            ),
+                            const CustomSpacer(
+                              flex: 3,
                             ),
                             Row(
                               children: [
@@ -103,7 +149,7 @@ class SignUpView extends StatelessWidget {
                               ],
                             ),
                             const CustomSpacer(
-                              flex: 3,
+                              flex: 4,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -121,7 +167,7 @@ class SignUpView extends StatelessWidget {
                                   onPressed: () {},
                                   size: Size(70.w, 28.h),
                                   outlined: true,
-                                  textColor: Palette.aquayarBlue,
+                                  textColor: Palette.aquayarBlack,
                                 )
                               ],
                             )
@@ -204,4 +250,39 @@ class _StepCounterState extends State<StepCounter> {
 LinearGradient blueGradient() {
   return const LinearGradient(
       colors: [Palette.firstGradientBlue, Palette.secondGradientBlue]);
+}
+
+class NumberFormatter extends TextInputFormatter {
+  @override
+  TextEditingValue formatEditUpdate(
+      TextEditingValue oldValue, TextEditingValue newValue) {
+    var text = newValue.text;
+
+    if (newValue.selection.baseOffset == 0) {
+      return newValue;
+    }
+
+    var buffer = StringBuffer();
+    for (int i = 0; i < text.length; i++) {
+      buffer.write(text[i]);
+      var nonZeroIndex = i + 1;
+      print(text.length);
+      if (nonZeroIndex <= 5) {
+        print("non");
+        print(nonZeroIndex);
+        if (nonZeroIndex % 5 == 0 && nonZeroIndex != text.length) {
+          buffer.write('-'); // Add double spaces.
+        }
+      } else {
+        if (nonZeroIndex % 12 == 0 && nonZeroIndex != text.length) {
+          buffer.write('-'); // Add double spaces.
+        }
+      }
+    }
+
+    var string = buffer.toString();
+    return newValue.copyWith(
+        text: string,
+        selection: TextSelection.collapsed(offset: string.length));
+  }
 }

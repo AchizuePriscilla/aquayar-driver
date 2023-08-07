@@ -80,8 +80,8 @@ class OnboardingViewState extends State<OnboardingView>
             padding: EdgeInsets.symmetric(horizontal: 20.w),
             child: Button(
               text: "Sign up as Driver",
-              onPressed: ()  {
-                 onboardingVM.navigateToSignUp();
+              onPressed: () {
+                onboardingVM.navigateToSignUp();
               },
               hasIcon: true,
             ),
@@ -95,7 +95,7 @@ class OnboardingViewState extends State<OnboardingView>
               text: "Login",
               onPressed: () {},
               outlined: true,
-              textColor: Palette.aquayarBlue,
+              textColor: Palette.aquayarBlack,
             ),
           ),
           const CustomSpacer(
@@ -122,7 +122,7 @@ class _Pages extends StatelessWidget {
           height: MediaQuery.of(context).size.height * .5,
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
-              color: Palette.aquayarBlue,
+              color: Palette.aquayarBlack,
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(80.w),
                   bottomRight: Radius.circular(80.w))),
