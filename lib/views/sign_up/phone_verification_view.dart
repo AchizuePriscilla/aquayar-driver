@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:aquayar_driver/shared/shared.dart';
+import 'package:aquayar_driver/utils/constants.dart';
 import 'package:aquayar_driver/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -15,9 +16,7 @@ class PhoneVerificationView extends StatefulWidget {
 class _PhoneVerificationViewState extends State<PhoneVerificationView> {
   final TextEditingController _controller =
       TextEditingController(text: "208420840230239");
-  final _formKey = GlobalKey<FormState>();
-
-  late StreamController<ErrorAnimationType> _errorController;
+  
   @override
   Widget build(BuildContext context) {
     return ResponsiveWidget(
@@ -39,7 +38,6 @@ class _PhoneVerificationViewState extends State<PhoneVerificationView> {
                   "We need to do this to make sure we can reach you through this number. Make sure it's correct.",
                   style: AquayarTextStyles.greyBody,
                 ),
-
                 const CustomSpacer(
                   flex: 4,
                 ),
@@ -52,16 +50,14 @@ class _PhoneVerificationViewState extends State<PhoneVerificationView> {
                       color: Palette.green,
                     )),
                 const Spacer(),
-                Button(text: "Verify", onPressed: () {}),
+                Button(
+                    text: "Verify",
+                    onPressed: () {
+                      Navigator.pushNamed(context, codeVerificationViewRoute);
+                    }),
                 const CustomSpacer(
                   flex: 4,
                 ),
-                // PinCodeFields(controller: _controller, validator: (val) {
-                //           if (val.length < 6) {
-                //             return 'Enter code';
-                //           }
-                //           return null;
-                //         }, errorController: _errorController)
               ],
             ),
           );

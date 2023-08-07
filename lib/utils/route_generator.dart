@@ -10,13 +10,14 @@ class RouteGenerator {
     switch (settings.name) {
       case splashScreenViewRoute:
         return _getPageRoute(const SplashScreenView());
-       case onboardingScreenViewRoute:
+      case onboardingScreenViewRoute:
         return _getPageRoute(const OnboardingView());
-       case signUpViewRoute:
+      case signUpViewRoute:
         return _getPageRoute(const SignUpView());
-       case phoneVerificationViewRoute:
+      case phoneVerificationViewRoute:
         return _getPageRoute(const PhoneVerificationView());
-
+      case codeVerificationViewRoute:
+        return _getPageRoute(const CodeVerificationView());
 
       default:
         return _getPageRoute(_errorPage());
