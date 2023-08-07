@@ -3,7 +3,6 @@ import 'package:aquayar_driver/utils/constants.dart';
 import 'package:aquayar_driver/utils/locator.dart';
 import 'package:aquayar_driver/utils/providers.dart';
 import 'package:aquayar_driver/utils/route_generator.dart';
-import 'package:aquayar_driver/views/splash_screen/splash_screen_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';

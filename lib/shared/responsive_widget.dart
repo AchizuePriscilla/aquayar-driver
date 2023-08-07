@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'palette.dart';
 
 class ResponsiveWidget extends StatelessWidget {
   final Widget Function(BuildContext context, Size size) builder;

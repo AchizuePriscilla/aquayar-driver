@@ -1,6 +1,5 @@
 import 'package:aquayar_driver/shared/shared.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
@@ -250,39 +249,4 @@ class _StepCounterState extends State<StepCounter> {
 LinearGradient blueGradient() {
   return const LinearGradient(
       colors: [Palette.firstGradientBlue, Palette.secondGradientBlue]);
-}
-
-class NumberFormatter extends TextInputFormatter {
-  @override
-  TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue, TextEditingValue newValue) {
-    var text = newValue.text;
-
-    if (newValue.selection.baseOffset == 0) {
-      return newValue;
-    }
-
-    var buffer = StringBuffer();
-    for (int i = 0; i < text.length; i++) {
-      buffer.write(text[i]);
-      var nonZeroIndex = i + 1;
-      print(text.length);
-      if (nonZeroIndex <= 5) {
-        print("non");
-        print(nonZeroIndex);
-        if (nonZeroIndex % 5 == 0 && nonZeroIndex != text.length) {
-          buffer.write('-'); // Add double spaces.
-        }
-      } else {
-        if (nonZeroIndex % 12 == 0 && nonZeroIndex != text.length) {
-          buffer.write('-'); // Add double spaces.
-        }
-      }
-    }
-
-    var string = buffer.toString();
-    return newValue.copyWith(
-        text: string,
-        selection: TextSelection.collapsed(offset: string.length));
-  }
 }

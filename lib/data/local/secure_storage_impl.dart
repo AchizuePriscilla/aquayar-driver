@@ -25,7 +25,6 @@ class SecureStorageImpl implements SecureStorage {
       return await _storage.read(key: key);
     } catch (e) {
       AppLogger.log(e);
-      print(e);
       return null;
     }
   }
@@ -36,7 +35,6 @@ class SecureStorageImpl implements SecureStorage {
       await _storage.write(key: key, value: value);
     } catch (e) {
       AppLogger.log(e);
-      print(e);
     }
   }
 }

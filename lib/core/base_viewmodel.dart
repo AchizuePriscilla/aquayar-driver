@@ -27,7 +27,6 @@ class BaseViewModel extends ChangeNotifier {
 
   void toggleSignedIn(bool val) {
     _signedIn = val;
-    print("Signed in: $_signedIn");
     notifyListeners();
   }
 

@@ -58,10 +58,11 @@ class NavigationHandlerImpl implements NavigationHandler {
   @override
   void popUntil([String? destinationRoute]) {
     if (state != null) {
-      if (destinationRoute != null)
+      if (destinationRoute != null) {
         return state!.popUntil(ModalRoute.withName(destinationRoute));
-      else
+      } else {
         return state!.popUntil((route) => true);
+      }
     }
   }
 
