@@ -5,3 +5,4 @@ const String lastPage = 'lastPage';
 
 const splashScreenViewRoute = 'splash-screen-view';
 const onboardingScreenViewRoute = 'onboarding-screen-view';
+const signUpViewRoute = 'sign-up-view';

@@ -12,6 +12,8 @@ class RouteGenerator {
         return _getPageRoute(const SplashScreenView());
        case onboardingScreenViewRoute:
         return _getPageRoute(const OnboardingView());
+       case signUpViewRoute:
+        return _getPageRoute(const SignUpView());
 
 
       default:

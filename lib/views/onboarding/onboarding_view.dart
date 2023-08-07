@@ -80,7 +80,9 @@ class OnboardingViewState extends State<OnboardingView>
             padding: EdgeInsets.symmetric(horizontal: 20.w),
             child: Button(
               text: "Sign up as Driver",
-              onPressed: () {},
+              onPressed: ()  {
+                 onboardingVM.navigateToSignUp();
+              },
               hasIcon: true,
             ),
           ),

@@ -36,9 +36,9 @@ class OnboardingVM extends BaseViewModel {
     _pageController = controller;
   }
 
-  ///Navigates to SignUpPagesView and cache onboarding status
+  ///Navigate to SignUpPagesView and cache onboarding status
   Future<void> navigateToSignUp() async {
     await localCache.saveToLocalCache(key: onboardingDone, value: true);
-    // navigationHandler.pushReplacementNamed(signUpViewRoute);
+    navigationHandler.pushReplacementNamed(signUpViewRoute);
   }
 }

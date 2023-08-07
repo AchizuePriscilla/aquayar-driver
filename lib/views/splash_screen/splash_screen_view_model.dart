@@ -35,21 +35,21 @@ class SplashScreenVM extends BaseViewModel {
             bool hasBeenOnboarded =
                 localCache.getFromLocalCache(onboardingDone) != null;
 
-            // if (hasBeenOnboarded) {
-            //   //if user has been onboarded, check if there is any cached page
-            //   //and navigate to it, if any
-            //   if (_checkLastPage()) {
-            //     return;
-            //   }
+            if (hasBeenOnboarded) {
+              //if user has been onboarded, check if there is any cached page
+              //and navigate to it, if any
+              // if (_checkLastPage()) {
+              //   return;
+              // }
 
-            //   //no cached page but user has been onboarded?
-            //   //navigate to LoginView
+              //no cached page but user has been onboarded?
+              //navigate to LoginView
 
-            //   navigationHandler.pushReplacementNamed(LogInViewRoute);
-            // } else {
-            //   //if user has not been onboarded, navigate to OnboardingView
-            navigationHandler.pushReplacementNamed(onboardingScreenViewRoute);
-            // }
+              navigationHandler.pushReplacementNamed(signUpViewRoute);
+            } else {
+              //   //if user has not been onboarded, navigate to OnboardingView
+              navigationHandler.pushReplacementNamed(onboardingScreenViewRoute);
+            }
             //#end of user not logged in flow
           }
         },

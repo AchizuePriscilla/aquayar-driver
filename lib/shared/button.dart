@@ -6,7 +6,7 @@ class Button extends StatelessWidget {
   final bool loading;
   final Function onPressed;
   final bool outlined;
-  final bool inDialog;
+  final bool halfSized;
   final bool active;
   final bool hasIcon;
   final Size? size;
@@ -20,7 +20,7 @@ class Button extends StatelessWidget {
       this.loading = false,
       required this.onPressed,
       this.outlined = false,
-      this.inDialog = false,
+      this.halfSized = false,
       this.active = true,
       this.hasIcon = false,
       this.size,
@@ -40,8 +40,8 @@ class Button extends StatelessWidget {
   MaterialStateProperty<Size> get dialogMinSize =>
       MaterialStateProperty.resolveWith(
         (states) => Size(
-          57.w,
-          25.h,
+          150.w,
+          40.h,
         ),
       );
 
@@ -58,7 +58,7 @@ class Button extends StatelessWidget {
         : Text(
             text,
             style: TextStyle(
-                fontSize: inDialog ? 12.sp : 14.sp,
+                fontSize: halfSized ? 14.sp : 14.sp,
                 fontWeight: FontWeight.w400,
                 color: textColor ?? Palette.aquayarWhite),
           );
@@ -67,7 +67,7 @@ class Button extends StatelessWidget {
         shape: MaterialStateProperty.all(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(50))),
         fixedSize: MaterialStateProperty.resolveWith((states) => size),
-        minimumSize: inDialog ? dialogMinSize : minSize,
+        minimumSize: halfSized ? dialogMinSize : minSize,
         foregroundColor: MaterialStateProperty.resolveWith(
           (states) => !active ? null : Palette.aquayarWhite.withOpacity(.75),
         ),
