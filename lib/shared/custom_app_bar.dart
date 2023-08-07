@@ -19,17 +19,14 @@ class CustomAppBar extends AppBar {
       : super(
           key: key,
           leading: implyLeading
-              ? Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.w),
-                  child: IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: Icon(
-                      Icons.arrow_back,
-                      size: 20.h,
-                      color: Palette.aquayarBlack,
-                    ),
+              ? IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: Icon(
+                    Icons.arrow_back,
+                    size: 20.h,
+                    color: Palette.aquayarBlack,
                   ),
                 )
               : null,

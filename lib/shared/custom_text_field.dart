@@ -58,7 +58,9 @@ class CustomTextField extends StatelessWidget {
         if (_label.isNotEmpty) ...{
           Text(
             _label,
-            style: TextStyle(fontSize: 16.sp),
+            style: TextStyle(
+              fontSize: 16.sp,
+            ),
           ),
           const CustomSpacer(
             flex: 1,

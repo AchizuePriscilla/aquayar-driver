@@ -1,7 +1,10 @@
 import 'package:aquayar_driver/shared/shared.dart';
+import 'package:aquayar_driver/utils/text_styles.dart';
+import 'package:aquayar_driver/views/sign_up/sign_up_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:provider/provider.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
@@ -26,156 +29,147 @@ class _SignUpViewState extends State<SignUpView> {
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveWidget(
-        appBar: CustomAppBar(
-          context: context,
-          actionWidgets: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.w),
-              child: SvgPicture.asset("assets/svgs/aquayar_logo_and_text.svg"),
-            )
-          ],
-        ),
-        builder: (context, size) {
-          return PageView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.w),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const CustomSpacer(
-                          flex: 2,
-                        ),
-                        Text(
-                          "Create a",
-                          style: TextStyle(fontSize: 32.sp),
-                        ),
-                        Row(
-                          children: [
-                            Text("driver account.",
-                                style: TextStyle(fontSize: 32.sp)),
-                            const Spacer(),
-                            StepCounter(widgetIndex: index)
-                          ],
-                        ),
-                        const CustomSpacer(
-                          flex: 4,
-                        ),
-                        Form(
-                            child: Column(
-                          children: [
-                            Row(
-                              children: [
-                                Text(
-                                  "Your email address",
-                                  style: TextStyle(fontSize: 16.sp),
-                                ),
-                                const Spacer(),
-                                Text(
-                                  "This will be your username",
-                                  style: TextStyle(
-                                      fontSize: 12.sp, color: Palette.grey2),
-                                )
-                              ],
-                            ),
-                            const CustomSpacer(
-                              flex: 1,
-                            ),
-                            const CustomTextField(
-                              keyboardType: TextInputType.emailAddress,
-                            ),
-                            const CustomSpacer(
-                              flex: 2,
-                            ),
-                            CustomTextField(
-                              keyboardType: TextInputType.phone,
-                              formatters: [maskFormatter],
-                              label: "Phone number",
-                              prefix: Container(
-                                width: 45.w,
-                                margin: EdgeInsets.only(right: 10.w),
-                                child: Row(
-                                  children: [
-                                    const Spacer(),
-                                    SvgPicture.asset(
-                                      "assets/svgs/flag.svg",
-                                      height: 15.h,
-                                      width: 20.w,
-                                      fit: BoxFit.scaleDown,
-                                    ),
-                                    const Spacer(),
-                                    Container(
-                                      height: 40.h,
-                                      width: 1,
-                                      color: Palette.lightGrey,
-                                    ),
-                                  ],
-                                ),
+    return ListenableProvider(
+        create: (_) => SignUpVM(),
+        builder: (ctx, _) {
+          return ResponsiveWidget(
+              appBar: CustomAppBar(
+                context: context,
+                actionWidgets: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20.w),
+                    child: SvgPicture.asset(
+                        "assets/svgs/aquayar_logo_and_text.svg"),
+                  )
+                ],
+              ),
+              builder: (context, size) {
+                return PageView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20.w),
+                        child: SingleChildScrollView(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const CustomSpacer(
+                                flex: 2,
                               ),
-                            ),
-                            const CustomSpacer(
-                              flex: 2,
-                            ),
-                            CustomTextField(
-                              obscureText: _hidePassword,
-                              label: "Choose a password",
-                              suffix: PasswordVisibilityIcon(
-                                onPressed: toggleVisibility,
-                                value: _hidePassword,
+                              Text(
+                                "Create a",
+                                style: AquayarTextStyles.h1,
                               ),
-                            ),
-                            const CustomSpacer(
-                              flex: 3,
-                            ),
-                            Row(
-                              children: [
-                                Button(
-                                  text: "Cancel",
-                                  onPressed: () {},
-                                  halfSized: true,
-                                  outlined: true,
-                                  textColor: Palette.aquayarGrey,
-                                ),
-                                const Spacer(),
-                                Button(
-                                  text: "Next",
-                                  onPressed: () {},
-                                  halfSized: true,
-                                )
-                              ],
-                            ),
-                            const CustomSpacer(
-                              flex: 4,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "Already have an account?",
-                                  style: TextStyle(fontSize: 16.sp),
-                                ),
-                                const CustomSpacer(
-                                  flex: 3,
-                                  horizontal: true,
-                                ),
-                                Button(
-                                  text: "Login",
-                                  onPressed: () {},
-                                  size: Size(70.w, 28.h),
-                                  outlined: true,
-                                  textColor: Palette.aquayarBlack,
-                                )
-                              ],
-                            )
-                          ],
-                        ))
-                      ],
-                    ),
-                  ),
-                );
+                              Row(
+                                children: [
+                                  Text("driver account.",
+                                      style: AquayarTextStyles.h1),
+                                  const Spacer(),
+                                  StepCounter(widgetIndex: index)
+                                ],
+                              ),
+                              const CustomSpacer(
+                                flex: 4,
+                              ),
+                              Form(
+                                  child: Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Text(
+                                        "Your email address",
+                                        style: TextStyle(fontSize: 16.sp),
+                                      ),
+                                      const Spacer(),
+                                      Text(
+                                        "This will be your username",
+                                        style: TextStyle(
+                                            fontSize: 12.sp,
+                                            color: Palette.grey2),
+                                      )
+                                    ],
+                                  ),
+                                  const CustomSpacer(
+                                    flex: 1,
+                                  ),
+                                  const CustomTextField(
+                                    keyboardType: TextInputType.emailAddress,
+                                  ),
+                                  const CustomSpacer(
+                                    flex: 2,
+                                  ),
+                                  CustomTextField(
+                                    keyboardType: TextInputType.phone,
+                                    formatters: [maskFormatter],
+                                    label: "Phone number",
+                                    prefix: const FlagPrefixIcon(),
+                                  ),
+                                  const CustomSpacer(
+                                    flex: 2,
+                                  ),
+                                  CustomTextField(
+                                    obscureText: _hidePassword,
+                                    label: "Choose a password",
+                                    suffix: PasswordVisibilityIcon(
+                                      onPressed: toggleVisibility,
+                                      value: _hidePassword,
+                                    ),
+                                  ),
+                                  const CustomSpacer(
+                                    flex: 3,
+                                  ),
+                                  Row(
+                                    children: [
+                                      Button(
+                                        text: "Cancel",
+                                        onPressed: () {},
+                                        halfSized: true,
+                                        outlined: true,
+                                        textColor: Palette.aquayarGrey,
+                                      ),
+                                      const Spacer(),
+                                      Consumer<SignUpVM>(
+                                          builder: (_, signUpVM, __) {
+                                        return Button(
+                                          text: "Next",
+                                          onPressed: () {
+                                            signUpVM.signUp();
+                                          },
+                                          halfSized: true,
+                                        );
+                                      })
+                                    ],
+                                  ),
+                                  const CustomSpacer(
+                                    flex: 4,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        "Already have an account?",
+                                        style: TextStyle(fontSize: 16.sp),
+                                      ),
+                                      const CustomSpacer(
+                                        flex: 3,
+                                        horizontal: true,
+                                      ),
+                                      Button(
+                                        text: "Login",
+                                        onPressed: () {},
+                                        size: Size(70.w, 28.h),
+                                        outlined: true,
+                                        textColor: Palette.aquayarBlack,
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ))
+                            ],
+                          ),
+                        ),
+                      );
+                    });
               });
         });
   }

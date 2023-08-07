@@ -8,4 +8,5 @@ class Palette {
   static const grey2 = Color(0xffAEB0C3);
   static const firstGradientBlue = Color(0xff61C7F9);
   static const secondGradientBlue = Color(0xff0579CE);
+  static const green = Color(0xff3FAD57);
 }
