@@ -10,4 +10,5 @@ class Palette {
   static const secondGradientBlue = Color(0xff0579CE);
   static const green = Color(0xff3FAD57);
   static const orange = Color(0xffF79009);
+  static const offWhite = Color(0xffFAFAFA);
 }

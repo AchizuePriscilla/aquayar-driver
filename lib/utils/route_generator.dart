@@ -18,6 +18,8 @@ class RouteGenerator {
         return _getPageRoute(const PhoneVerificationView());
       case codeVerificationViewRoute:
         return _getPageRoute(const CodeVerificationView());
+      case mediaUploadViewRoute:
+        return _getPageRoute(const MediaUploadView());
 
       default:
         return _getPageRoute(_errorPage());

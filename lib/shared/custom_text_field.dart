@@ -59,7 +59,7 @@ class CustomTextField extends StatelessWidget {
           Text(
             _label,
             style: TextStyle(
-              fontSize: 16.sp,
+              fontSize: 15.sp,
             ),
           ),
           const CustomSpacer(
