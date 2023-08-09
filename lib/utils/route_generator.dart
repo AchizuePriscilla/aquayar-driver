@@ -15,6 +15,8 @@ class RouteGenerator {
         return _getPageRoute(const OnboardingView());
       case signUpViewRoute:
         return _getPageRoute(const SignUpView());
+      case loginViewRoute:
+        return _getPageRoute(const LoginView());
       case phoneVerificationViewRoute:
         return _getPageRoute(const PhoneVerificationView());
       case codeVerificationViewRoute:

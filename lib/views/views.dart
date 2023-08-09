@@ -5,3 +5,4 @@ export 'sign_up/phone_verification_view.dart';
 export 'sign_up/code_verification_view.dart';
 export 'sign_up/media_upload_view.dart';
 export 'sign_up/verification_under_review.dart';
+export 'login/login_view.dart';

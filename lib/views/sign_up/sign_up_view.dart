@@ -37,6 +37,7 @@ class _SignUpViewState extends State<SignUpView> {
     return ResponsiveWidget(
         appBar: CustomAppBar(
           context: context,
+          implyLeading: false,
           actionWidgets: [
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -166,31 +167,18 @@ class _SignUpStepOneFormState extends State<SignUpStepOneForm> {
         const CustomSpacer(
           flex: 3,
         ),
-        Row(
-          children: [
-            Button(
-              text: "Cancel",
-              onPressed: () {},
-              halfSized: true,
-              outlined: true,
-              textColor: Palette.aquayarGrey,
-            ),
-            const Spacer(),
-            Button(
-              text: "Next",
-              onPressed: () async {
-                var res = await Navigator.pushNamed(
-                    context, phoneVerificationViewRoute);
-                if (res == true) {
-                  signUpVM.changePage(2);
-                  setState(() {
-                    signUpVM.currentIndex = 2;
-                  });
-                }
-              },
-              halfSized: true,
-            )
-          ],
+        Button(
+          text: "Next",
+          onPressed: () async {
+            var res =
+                await Navigator.pushNamed(context, phoneVerificationViewRoute);
+            if (res == true) {
+              signUpVM.changePage(2);
+              setState(() {
+                signUpVM.currentIndex = 2;
+              });
+            }
+          },
         ),
         const CustomSpacer(
           flex: 4,
@@ -208,7 +196,9 @@ class _SignUpStepOneFormState extends State<SignUpStepOneForm> {
             ),
             Button(
               text: "Login",
-              onPressed: () {},
+              onPressed: () {
+                Navigator.popAndPushNamed(context, loginViewRoute);
+              },
               size: Size(70.w, 28.h),
               outlined: true,
               textColor: Palette.aquayarBlack,
