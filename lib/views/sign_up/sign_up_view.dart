@@ -1,3 +1,4 @@
+import 'package:aquayar_driver/navigation/media_upload_arg.dart';
 import 'package:aquayar_driver/shared/shared.dart';
 import 'package:aquayar_driver/utils/constants.dart';
 import 'package:aquayar_driver/utils/text_styles.dart';
@@ -442,6 +443,10 @@ class _SignUpStepThreeFormState extends State<SignUpStepThreeForm> {
           title: "ID Verification",
           subtitle: "NIN/Driver’s Liscense/Voter’s Card",
           isVerified: true,
+          titleForMediaPage: "Exterior Photo of your Water Truck",
+          subtitleForMediaPage:
+              "Upload a clear exterior photo that captures the plate number on the truck.",
+          sampleMediaPath: "",
         ),
         const CustomSpacer(
           flex: 2,
@@ -450,6 +455,10 @@ class _SignUpStepThreeFormState extends State<SignUpStepThreeForm> {
           title: "ID Verification",
           subtitle: "NIN/Driver’s Liscense/Voter’s Card",
           isVerified: false,
+          titleForMediaPage: "Exterior Photo of your Water Truck",
+          subtitleForMediaPage:
+              "Upload a clear exterior photo that captures the plate number on the truck.",
+          sampleMediaPath: "",
         ),
         const CustomSpacer(
           flex: 3,
@@ -464,6 +473,10 @@ class _SignUpStepThreeFormState extends State<SignUpStepThreeForm> {
         const ItemVerificationWidget(
           title: "Exterior Photo of your Water Truck",
           isVerified: false,
+          titleForMediaPage: "Exterior Photo of your Water Truck",
+          subtitleForMediaPage:
+              "Upload a clear exterior photo that captures the plate number on the truck.",
+          sampleMediaPath: "",
         ),
         const CustomSpacer(
           flex: 2,
@@ -471,6 +484,10 @@ class _SignUpStepThreeFormState extends State<SignUpStepThreeForm> {
         const ItemVerificationWidget(
           title: "Interior Photo of your Water Truck",
           isVerified: false,
+          titleForMediaPage: "Exterior Photo of your Water Truck",
+          subtitleForMediaPage:
+              "Upload a clear exterior photo that captures the plate number on the truck.",
+          sampleMediaPath: "",
         ),
         const CustomSpacer(
           flex: 2,
@@ -478,6 +495,10 @@ class _SignUpStepThreeFormState extends State<SignUpStepThreeForm> {
         const ItemVerificationWidget(
           title: "Pump Photo of your Water Truck",
           isVerified: false,
+          titleForMediaPage: "Exterior Photo of your Water Truck",
+          subtitleForMediaPage:
+              "Upload a clear exterior photo that captures the plate number on the truck.",
+          sampleMediaPath: "",
         ),
         const CustomSpacer(
           flex: 2,
@@ -497,7 +518,10 @@ class _SignUpStepThreeFormState extends State<SignUpStepThreeForm> {
             const Spacer(),
             Button(
               text: "Next",
-              onPressed: () async {},
+              onPressed: () {
+                Navigator.popAndPushNamed(
+                    context, verificationUnderReviewRoute);
+              },
               halfSized: true,
             )
           ],
@@ -514,64 +538,79 @@ class ItemVerificationWidget extends StatelessWidget {
   final String title;
   final String? subtitle;
   final bool isVerified;
+  final String titleForMediaPage;
+  final String subtitleForMediaPage;
+  final String sampleMediaPath;
   const ItemVerificationWidget({
     required this.isVerified,
     this.subtitle,
     required this.title,
+    required this.sampleMediaPath,
+    required this.subtitleForMediaPage,
+    required this.titleForMediaPage,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      elevation: isVerified ? 4 : 0,
-      shadowColor: Palette.aquayarWhite,
-      borderRadius: BorderRadius.circular(25.w),
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20.w),
-        height: subtitle == null ? 45.h : 60.h,
-        decoration: BoxDecoration(
-            color: isVerified ? Palette.aquayarWhite : Palette.offWhite,
-            border: Border.all(color: Palette.lightGrey),
-            borderRadius: BorderRadius.circular(25.w)),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  title,
-                  style: TextStyle(
-                      fontSize: 15.sp,
-                      color: isVerified
-                          ? Palette.aquayarBlack
-                          : Palette.aquayarGrey),
-                ),
-                if (subtitle != null) ...{
-                  const CustomSpacer(
-                    flex: 1,
-                  ),
+    return InkWell(
+      onTap: () {
+        Navigator.pushNamed(context, mediaUploadViewRoute,
+            arguments: MediaUploadArgs(
+                title: titleForMediaPage,
+                subtitle: subtitleForMediaPage,
+                sampleImagePath: sampleMediaPath));
+      },
+      child: Material(
+        elevation: isVerified ? 4 : 0,
+        shadowColor: Palette.aquayarWhite,
+        borderRadius: BorderRadius.circular(25.w),
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
+          height: subtitle == null ? 45.h : 60.h,
+          decoration: BoxDecoration(
+              color: isVerified ? Palette.aquayarWhite : Palette.offWhite,
+              border: Border.all(color: Palette.lightGrey),
+              borderRadius: BorderRadius.circular(25.w)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
                   Text(
-                    subtitle!,
-                    style:
-                        TextStyle(fontSize: 13.sp, color: Palette.aquayarGrey),
+                    title,
+                    style: TextStyle(
+                        fontSize: 15.sp,
+                        color: isVerified
+                            ? Palette.aquayarBlack
+                            : Palette.aquayarGrey),
                   ),
-                }
-              ],
-            ),
-            isVerified
-                ? const Icon(
-                    Icons.check_circle_outline,
-                    color: Palette.green,
-                  )
-                : Icon(
-                    Icons.warning_amber_rounded,
-                    color: Palette.aquayarGrey,
-                    size: 19.h,
-                  )
-          ],
+                  if (subtitle != null) ...{
+                    const CustomSpacer(
+                      flex: 1,
+                    ),
+                    Text(
+                      subtitle!,
+                      style: TextStyle(
+                          fontSize: 13.sp, color: Palette.aquayarGrey),
+                    ),
+                  }
+                ],
+              ),
+              isVerified
+                  ? const Icon(
+                      Icons.check_circle_outline,
+                      color: Palette.green,
+                    )
+                  : Icon(
+                      Icons.warning_amber_rounded,
+                      color: Palette.aquayarGrey,
+                      size: 19.h,
+                    )
+            ],
+          ),
         ),
       ),
     );

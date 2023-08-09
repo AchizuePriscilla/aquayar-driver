@@ -1,3 +1,4 @@
+import 'package:aquayar_driver/navigation/media_upload_arg.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -18,8 +19,17 @@ class RouteGenerator {
         return _getPageRoute(const PhoneVerificationView());
       case codeVerificationViewRoute:
         return _getPageRoute(const CodeVerificationView());
+      case verificationUnderReviewRoute:
+        return _getPageRoute(const VerificationUnderReview());
       case mediaUploadViewRoute:
-        return _getPageRoute(const MediaUploadView());
+          final mediaUploadArgs = settings.arguments;
+
+        if (mediaUploadArgs != null && mediaUploadArgs is MediaUploadArgs) {
+          return _getPageRoute(MediaUploadView(args: mediaUploadArgs,));
+        }
+        return _getPageRoute(
+          _errorPage(message: "Media Upload parameters not passed"),
+        );
 
       default:
         return _getPageRoute(_errorPage());

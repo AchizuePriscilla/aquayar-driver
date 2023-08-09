@@ -53,7 +53,8 @@ class CustomDropDownState extends State<CustomDropDown> {
         SizedBox(
           height: 40.h,
           child: DropdownButtonFormField<Object?>(
-            dropdownColor: Palette.lightGrey,
+            dropdownColor: Palette.offWhite,
+            borderRadius: BorderRadius.circular(20.w),
             elevation: 0,
             focusColor: Palette.aquayarBlack,
             icon: const Icon(Icons.expand_more),
@@ -63,7 +64,7 @@ class CustomDropDownState extends State<CustomDropDown> {
             ),
             value: _selectedItem,
             items: widget.items,
-            style: TextStyle(fontSize: 14.sp, color: Palette.aquayarBlack),
+            style: TextStyle(fontSize: 14.sp, color: Palette.aquayarGrey),
             onChanged: (value) {
               setState(() {
                 _selectedItem = value;

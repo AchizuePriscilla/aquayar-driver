@@ -9,3 +9,5 @@ const signUpViewRoute = 'sign-up-view';
 const phoneVerificationViewRoute = 'phone-verification-view';
 const codeVerificationViewRoute = 'code-verification-view';
 const mediaUploadViewRoute = 'media-upload-view';
+const verificationUnderReviewRoute = 'verification-under-review-view';
+
