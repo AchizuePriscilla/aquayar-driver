@@ -1,6 +1,6 @@
 import 'package:aquayar_driver/handlers/dialog_handler.dart';
 import 'package:aquayar_driver/navigation/finish_order_dialog_args.dart';
-import 'package:aquayar_driver/shared/dialog_card.dart';
+import 'package:aquayar_driver/shared/finish_order_dialog.dart';
 import 'package:aquayar_driver/utils/constants.dart';
 import 'package:aquayar_driver/utils/locator.dart';
 import 'package:flutter/material.dart';

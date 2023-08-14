@@ -1,5 +1,6 @@
 import 'package:aquayar_driver/navigation/finish_order_dialog_args.dart';
 import 'package:aquayar_driver/shared/shared.dart';
+import 'package:aquayar_driver/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dialog_manager/flutter_dialog_manager.dart';
 
@@ -157,7 +158,9 @@ class _DialogCardState extends State<DialogCard> {
                             );
                           },
                           onAccept: (item) {
-                            Navigator.pop(context);
+                          
+                            Navigator.pushReplacementNamed(
+                                context, successfulDeliveryViewRoute);
                           },
                         )
                       ],

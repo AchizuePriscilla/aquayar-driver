@@ -17,6 +17,7 @@ const changePasswordViewRoute = 'change-password-view';
 const orderViewRoute = 'order-view';
 const rejectReasonViewRoute = 'reject-reason-view';
 const undergoingDeliveryViewRoute = 'undergoing-delivery-view';
+const successfulDeliveryViewRoute = 'successful-delivery-view';
 
 //Dialogs
 const basicDialogRoute = 'basic-dialog';

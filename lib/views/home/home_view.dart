@@ -24,7 +24,7 @@ class _HomeViewState extends State<HomeView> {
     return ResponsiveWidget(
         appBar: CustomAppBar(
           context: context,
-          leadingIcon: Icons.close,
+          implyLeading: false,
           titleWidget: Material(
             borderRadius: BorderRadius.circular(20.h),
             shadowColor: const Color(0xff0d450f).withOpacity(.1),

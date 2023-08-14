@@ -35,11 +35,15 @@ class RouteGenerator {
         return _getPageRoute(const RejectReasonView());
       case undergoingDeliveryViewRoute:
         return _getPageRoute(const UndergoingDeliveryView());
+      case successfulDeliveryViewRoute:
+        return _getPageRoute(const SuccessfulOrderView());
       case mediaUploadViewRoute:
-          final mediaUploadArgs = settings.arguments;
+        final mediaUploadArgs = settings.arguments;
 
         if (mediaUploadArgs != null && mediaUploadArgs is MediaUploadArgs) {
-          return _getPageRoute(MediaUploadView(args: mediaUploadArgs,));
+          return _getPageRoute(MediaUploadView(
+            args: mediaUploadArgs,
+          ));
         }
         return _getPageRoute(
           _errorPage(message: "Media Upload parameters not passed"),
