@@ -1,4 +1,5 @@
 import 'package:aquayar_driver/shared/shared.dart';
+import 'package:aquayar_driver/utils/constants.dart';
 import 'package:aquayar_driver/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -33,7 +34,11 @@ class VerificationUnderReview extends StatelessWidget {
               style: AquayarTextStyles.greyBody,
             ),
             const Spacer(),
-            Button(text: "Go to home", onPressed: () {}),
+            Button(
+                text: "Go to home",
+                onPressed: () {
+                  Navigator.popAndPushNamed(context, homeViewRoute);
+                }),
             const CustomSpacer(
               flex: 5,
             ),

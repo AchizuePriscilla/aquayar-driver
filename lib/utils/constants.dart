@@ -7,6 +7,7 @@ const splashScreenViewRoute = 'splash-screen-view';
 const onboardingScreenViewRoute = 'onboarding-screen-view';
 const signUpViewRoute = 'sign-up-view';
 const loginViewRoute = 'log-in-view';
+const homeViewRoute = 'home-view';
 const phoneVerificationViewRoute = 'phone-verification-view';
 const codeVerificationViewRoute = 'code-verification-view';
 const mediaUploadViewRoute = 'media-upload-view';

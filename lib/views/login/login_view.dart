@@ -75,8 +75,10 @@ class _LoginViewState extends State<LoginView> {
                         flex: 3,
                       ),
                       Button(
-                        text: "Next",
-                        onPressed: () async {},
+                        text: "Log in",
+                        onPressed: () async {
+                          Navigator.popAndPushNamed(context, homeViewRoute);
+                        },
                       ),
                       const CustomSpacer(
                         flex: 4,

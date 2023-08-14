@@ -11,4 +11,5 @@ class Palette {
   static const green = Color(0xff3FAD57);
   static const orange = Color(0xffF79009);
   static const offWhite = Color(0xffFAFAFA);
+  static const red = Color(0xffC0362C);
 }

@@ -8,6 +8,8 @@ class CustomAppBar extends AppBar {
   final List<Widget> actionWidgets;
   final BuildContext context;
   final Color? backgroundCOlor;
+  final IconData? leadingIcon;
+  final Widget? titleWidget;
 
   CustomAppBar(
       {Key? key,
@@ -15,6 +17,8 @@ class CustomAppBar extends AppBar {
       this.implyLeading = true,
       this.actionWidgets = const [],
       required this.context,
+      this.leadingIcon,
+      this.titleWidget,
       this.backgroundCOlor})
       : super(
           key: key,
@@ -24,7 +28,7 @@ class CustomAppBar extends AppBar {
                     Navigator.pop(context);
                   },
                   icon: Icon(
-                    Icons.arrow_back,
+                    leadingIcon ?? Icons.arrow_back,
                     size: 20.h,
                     color: Palette.aquayarBlack,
                   ),
@@ -34,7 +38,7 @@ class CustomAppBar extends AppBar {
           actions: actionWidgets,
           backgroundColor: backgroundCOlor ?? Palette.aquayarWhite,
           elevation: 0,
-          title: Text(
+          title: titleWidget ?? Text(
             text,
             style: TextStyle(
               fontSize: 18.sp,
