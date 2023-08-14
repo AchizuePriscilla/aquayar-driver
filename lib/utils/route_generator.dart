@@ -29,6 +29,8 @@ class RouteGenerator {
         return _getPageRoute(const EditProfileView());
       case changePasswordViewRoute:
         return _getPageRoute(const ChangePasswordView());
+      case orderViewRoute:
+        return _getPageRoute(const OrderView());
       case mediaUploadViewRoute:
           final mediaUploadArgs = settings.arguments;
 

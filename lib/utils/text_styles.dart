@@ -1,7 +1,5 @@
 import 'package:aquayar_driver/shared/shared.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 class AquayarTextStyles {
   static TextStyle h1 = TextStyle(
     fontWeight: FontWeight.w400,

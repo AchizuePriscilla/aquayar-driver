@@ -383,7 +383,6 @@ class SignUpStepThreeForm extends StatefulWidget {
 class _SignUpStepThreeFormState extends State<SignUpStepThreeForm> {
   @override
   Widget build(BuildContext context) {
-    var signUpVM = context.read<SignUpVM>();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

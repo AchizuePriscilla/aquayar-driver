@@ -14,4 +14,4 @@ const mediaUploadViewRoute = 'media-upload-view';
 const verificationUnderReviewRoute = 'verification-under-review-view';
 const editProfileViewRoute = 'edit-profile-view';
 const changePasswordViewRoute = 'change-password-view';
-
+const orderViewRoute = 'order-view';

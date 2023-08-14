@@ -1,6 +1,5 @@
 import 'package:aquayar_driver/navigation/media_upload_arg.dart';
 import 'package:aquayar_driver/shared/shared.dart';
-import 'package:aquayar_driver/utils/constants.dart';
 import 'package:aquayar_driver/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

@@ -1,10 +1,7 @@
-import 'dart:async';
-
 import 'package:aquayar_driver/shared/shared.dart';
 import 'package:aquayar_driver/utils/constants.dart';
 import 'package:aquayar_driver/utils/text_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
 
 class PhoneVerificationView extends StatefulWidget {
   const PhoneVerificationView({super.key});

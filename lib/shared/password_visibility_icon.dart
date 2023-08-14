@@ -5,12 +5,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class PasswordVisibilityIcon extends StatelessWidget {
   final VoidCallback onPressed;
   final bool value;
+  final Color? color;
+  final double? size;
 
-  const PasswordVisibilityIcon({
-    Key? key,
-    required this.onPressed,
-    this.value = false,
-  }) : super(key: key);
+  const PasswordVisibilityIcon(
+      {Key? key,
+      required this.onPressed,
+      this.value = false,
+      this.color,
+      this.size})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +22,8 @@ class PasswordVisibilityIcon extends StatelessWidget {
       onTap: onPressed,
       child: Icon(
         value ? Icons.visibility_outlined : Icons.visibility_off_outlined,
-        color: Palette.aquayarBlack,
-        size: 20.w,
+        color: color ?? Palette.aquayarBlack,
+        size: size ?? 20.w,
       ),
     );
   }

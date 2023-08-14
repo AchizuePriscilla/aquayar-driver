@@ -9,3 +9,4 @@ export 'login/login_view.dart';
 export 'home/home_view.dart';
 export 'profile/edit_profile_view.dart';
 export 'change_password/change_password_view.dart';
+export 'order/order_view.dart';

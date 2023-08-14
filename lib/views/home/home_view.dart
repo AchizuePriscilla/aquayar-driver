@@ -12,6 +12,13 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  bool _isWalletVisible = true;
+  void toggleVisibility() {
+    setState(() {
+      _isWalletVisible = !_isWalletVisible;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return ResponsiveWidget(
@@ -110,95 +117,140 @@ class _HomeViewState extends State<HomeView> {
                   const CustomSpacer(
                     flex: 3,
                   ),
-                  Container(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 15.w, vertical: 13.h),
-                    decoration: BoxDecoration(
-                        color: Palette.aquayarBlack,
-                        borderRadius: BorderRadius.circular(20.h)),
+                  InkWell(
+                    onTap: () {
+                      toggleVisibility();
+                    },
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Main wallet",
-                              style: TextStyle(
-                                  fontSize: 13.sp, color: Palette.aquayarWhite),
-                            ),
-                            const CustomSpacer(
-                              flex: 1,
-                            ),
-                            Text(
-                              "\$24,000.45",
-                              style: TextStyle(
-                                  fontSize: 18.sp, color: Palette.aquayarWhite),
-                            ),
-                            const CustomSpacer(
-                              flex: 1,
-                            ),
-                            Container(
-                              height: 20.h,
-                              padding: EdgeInsets.symmetric(horizontal: 10.w),
-                              decoration: BoxDecoration(
-                                  color: Palette.aquayarWhite,
-                                  borderRadius: BorderRadius.circular(20.w)),
-                              child: const Center(
-                                  child: Text(
-                                "Withdraw Balance",
-                                style: TextStyle(color: Palette.aquayarBlack),
-                              )),
-                            )
-                          ],
+                        PasswordVisibilityIcon(
+                          onPressed: () {},
+                          color: Palette.aquayarGrey,
+                          value: !_isWalletVisible,
+                          size: 14.h,
                         ),
-                        const Spacer(),
-                        Container(
-                          padding: EdgeInsets.only(
-                              left: 15.w, top: 10.h, bottom: 10.h, right: 25.w),
-                          decoration: BoxDecoration(
-                              color: const Color(0xffFFDBDB),
-                              borderRadius: BorderRadius.circular(20.h)),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Debt wallet",
-                                style: TextStyle(
-                                    fontSize: 13.sp,
-                                    color: Palette.aquayarBlack),
-                              ),
-                              const CustomSpacer(
-                                flex: 1,
-                              ),
-                              Text(
-                                "\$24,000.45",
-                                style: TextStyle(
-                                    fontSize: 18.sp,
-                                    color: Palette.aquayarBlack),
-                              ),
-                              const CustomSpacer(
-                                flex: 1,
-                              ),
-                              Container(
-                                height: 20.h,
-                                padding: EdgeInsets.symmetric(horizontal: 10.w),
-                                decoration: BoxDecoration(
-                                    color: Palette.aquayarWhite,
-                                    borderRadius: BorderRadius.circular(20.w)),
-                                child: const Center(
-                                    child: Text(
-                                  "Pay debt",
-                                  style: TextStyle(color: Palette.aquayarBlack),
-                                )),
-                              )
-                            ],
-                          ),
+                        const CustomSpacer(
+                          flex: .5,
+                          horizontal: true,
+                        ),
+                        Text(
+                          _isWalletVisible ? "Hide   " : "Show    ",
+                          style: TextStyle(
+                              color: Palette.aquayarGrey, fontSize: 14.sp),
                         )
                       ],
                     ),
                   ),
+                  const CustomSpacer(
+                    flex: 1,
+                  ),
+                  if (_isWalletVisible)
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, orderViewRoute);
+                      },
+                      child: Container(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 15.w, vertical: 13.h),
+                        decoration: BoxDecoration(
+                            color: Palette.aquayarBlack,
+                            borderRadius: BorderRadius.circular(20.h)),
+                        child: Row(
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Main wallet",
+                                  style: TextStyle(
+                                      fontSize: 13.sp,
+                                      color: Palette.aquayarWhite),
+                                ),
+                                const CustomSpacer(
+                                  flex: 1,
+                                ),
+                                Text(
+                                  "\$24,000.45",
+                                  style: TextStyle(
+                                      fontSize: 18.sp,
+                                      color: Palette.aquayarWhite),
+                                ),
+                                const CustomSpacer(
+                                  flex: 1,
+                                ),
+                                Container(
+                                  height: 20.h,
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 10.w),
+                                  decoration: BoxDecoration(
+                                      color: Palette.aquayarWhite,
+                                      borderRadius:
+                                          BorderRadius.circular(20.w)),
+                                  child: const Center(
+                                      child: Text(
+                                    "Withdraw Balance",
+                                    style:
+                                        TextStyle(color: Palette.aquayarBlack),
+                                  )),
+                                )
+                              ],
+                            ),
+                            const Spacer(),
+                            Container(
+                              padding: EdgeInsets.only(
+                                  left: 15.w,
+                                  top: 10.h,
+                                  bottom: 10.h,
+                                  right: 25.w),
+                              decoration: BoxDecoration(
+                                  color: const Color(0xffFFDBDB),
+                                  borderRadius: BorderRadius.circular(20.h)),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Debt wallet",
+                                    style: TextStyle(
+                                        fontSize: 13.sp,
+                                        color: Palette.aquayarBlack),
+                                  ),
+                                  const CustomSpacer(
+                                    flex: 1,
+                                  ),
+                                  Text(
+                                    "\$24,000.45",
+                                    style: TextStyle(
+                                        fontSize: 18.sp,
+                                        color: Palette.aquayarBlack),
+                                  ),
+                                  const CustomSpacer(
+                                    flex: 1,
+                                  ),
+                                  Container(
+                                    height: 20.h,
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 10.w),
+                                    decoration: BoxDecoration(
+                                        color: Palette.aquayarWhite,
+                                        borderRadius:
+                                            BorderRadius.circular(20.w)),
+                                    child: const Center(
+                                        child: Text(
+                                      "Pay debt",
+                                      style: TextStyle(
+                                          color: Palette.aquayarBlack),
+                                    )),
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
                   const CustomSpacer(
                     flex: 2,
                   ),
