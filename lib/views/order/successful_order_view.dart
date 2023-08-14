@@ -1,5 +1,7 @@
+import 'package:aquayar_driver/handlers/dialog_handler.dart';
 import 'package:aquayar_driver/shared/shared.dart';
 import 'package:aquayar_driver/utils/constants.dart';
+import 'package:aquayar_driver/utils/locator.dart';
 import 'package:aquayar_driver/utils/text_styles.dart';
 import 'package:aquayar_driver/views/views.dart';
 import 'package:flutter/material.dart';
@@ -107,52 +109,58 @@ class SuccessfulOrderView extends StatelessWidget {
               SvgPicture.asset("assets/svgs/dark_blue_wave.svg"),
               Positioned(
                 bottom: size.height * .15,
-                child: Container(
-                  width: size.width * .92,
-                  margin:
-                      EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 8.w, vertical: 10.h),
-                  decoration: BoxDecoration(
-                      color: const Color(0xff5cb0e6),
-                      borderRadius: BorderRadius.circular(30.w)),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Rate the customer",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Palette.aquayarWhite, fontSize: 20.sp),
-                      ),
-                      const CustomSpacer(
-                        flex: 1,
-                      ),
-                      Text(
-                        "We take your reviews and complaints very seriously.",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Palette.aquayarWhite, fontSize: 14.sp),
-                      ),
-                      const CustomSpacer(
-                        flex: 2,
-                      ),
-                      Material(
-                        elevation: 3,
-                        shape: const CircleBorder(),
-                        color: const Color(0xffF2F2F2).withOpacity(.32),
-                        shadowColor: Colors.transparent,
-                        child: SizedBox(
-                          height: 25.h,
-                          width: 25.h,
-                          child: Icon(
-                            Icons.arrow_forward_ios,
-                            color: Palette.aquayarWhite,
-                            size: 12.h,
-                          ),
+                child: InkWell(
+                  onTap: () {
+                    locator<DialogHandler>()
+                        .showDialog(routeName: rateUserDialogRoute);
+                  },
+                  child: Container(
+                    width: size.width * .92,
+                    margin:
+                        EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 8.w, vertical: 10.h),
+                    decoration: BoxDecoration(
+                        color: const Color(0xff5cb0e6),
+                        borderRadius: BorderRadius.circular(30.w)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Rate the customer",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Palette.aquayarWhite, fontSize: 20.sp),
                         ),
-                      )
-                    ],
+                        const CustomSpacer(
+                          flex: 1,
+                        ),
+                        Text(
+                          "We take your reviews and complaints very seriously.",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Palette.aquayarWhite, fontSize: 14.sp),
+                        ),
+                        const CustomSpacer(
+                          flex: 2,
+                        ),
+                        Material(
+                          elevation: 3,
+                          shape: const CircleBorder(),
+                          color: const Color(0xffF2F2F2).withOpacity(.32),
+                          shadowColor: Colors.transparent,
+                          child: SizedBox(
+                            height: 25.h,
+                            width: 25.h,
+                            child: Icon(
+                              Icons.arrow_forward_ios,
+                              color: Palette.aquayarWhite,
+                              size: 12.h,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),

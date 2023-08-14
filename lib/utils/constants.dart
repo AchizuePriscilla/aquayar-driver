@@ -21,3 +21,4 @@ const successfulDeliveryViewRoute = 'successful-delivery-view';
 
 //Dialogs
 const basicDialogRoute = 'basic-dialog';
+const rateUserDialogRoute = 'rate-user-dialog';

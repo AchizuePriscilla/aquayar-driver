@@ -13,3 +13,4 @@ export 'custom_dropdown.dart';
 export 'water_tanker_sizes.dart';
 export 'password_text_field.dart';
 export 'custom_icon.dart';
+export 'rate_user_dialog.dart';

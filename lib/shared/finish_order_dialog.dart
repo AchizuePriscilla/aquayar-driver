@@ -17,12 +17,6 @@ class DialogCard extends StatefulWidget {
 }
 
 class _DialogCardState extends State<DialogCard> {
-  bool isDragging = false;
-  toggleDragging() {
-    setState(() {
-      isDragging = !isDragging;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {

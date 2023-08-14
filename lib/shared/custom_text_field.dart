@@ -18,11 +18,13 @@ class CustomTextField extends StatelessWidget {
   final Color? hintColor;
   final Color? textColor;
   final TextCapitalization textCapitalization;
-  final int maxLines;
+  final int? maxLines;
   final bool readOnly;
   final VoidCallback? onTap;
   final List<TextInputFormatter>? formatters;
   final bool obscureText;
+  final bool expands;
+  final double? height;
 
   const CustomTextField({
     Key? key,
@@ -32,8 +34,10 @@ class CustomTextField extends StatelessWidget {
     this.hint,
     this.suffix,
     this.prefix,
+    this.height,
     this.validator,
     this.keyboardType,
+    this.expands = false,
     this.hintStyle,
     this.formatters,
     this.textInputAction = TextInputAction.next,
@@ -43,7 +47,7 @@ class CustomTextField extends StatelessWidget {
     this.borderColor,
     this.hintColor,
     this.textColor,
-    this.maxLines = 1,
+    this.maxLines,
     this.onTap,
     this.textCapitalization = TextCapitalization.none,
   }) : super(key: key);
@@ -67,8 +71,9 @@ class CustomTextField extends StatelessWidget {
           ),
         },
         SizedBox(
-          height: 40.h,
+          height: height ?? 40.h,
           child: TextFormField(
+            expands: expands,
             obscureText: obscureText,
             onTap: onTap,
             readOnly: readOnly,
