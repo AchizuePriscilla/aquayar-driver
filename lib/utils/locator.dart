@@ -2,6 +2,7 @@ import 'package:aquayar_driver/data/local/local_cache.dart';
 import 'package:aquayar_driver/data/local/local_cache_impl.dart';
 import 'package:aquayar_driver/data/local/secure_storage.dart';
 import 'package:aquayar_driver/data/local/secure_storage_impl.dart';
+import 'package:aquayar_driver/handlers/dialog_handler.dart';
 import 'package:aquayar_driver/handlers/navigation_handler.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -14,6 +15,8 @@ Future<void> setupLocator() async {
   //Handlers
   locator
       .registerLazySingleton<NavigationHandler>(() => NavigationHandlerImpl());
+  
+  locator.registerLazySingleton<DialogHandler>(() => DialogHandlerImpl());
 
   final sharedPreferences = await SharedPreferences.getInstance();
   locator.registerSingleton(sharedPreferences);

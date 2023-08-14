@@ -1,9 +1,12 @@
+import 'package:aquayar_driver/handlers/dialog_handler.dart';
 import 'package:aquayar_driver/handlers/navigation_handler.dart';
 import 'package:aquayar_driver/utils/constants.dart';
+import 'package:aquayar_driver/utils/dialog_generator.dart';
 import 'package:aquayar_driver/utils/locator.dart';
 import 'package:aquayar_driver/utils/providers.dart';
 import 'package:aquayar_driver/utils/route_generator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dialog_manager/flutter_dialog_manager.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
@@ -25,15 +28,20 @@ class MyApp extends StatelessWidget {
           return MultiProvider(
               providers: AppProvider.providers,
               builder: (context, child) {
-                return MaterialApp(
-                  title: 'Flutter Demo',
-                  navigatorKey: locator<NavigationHandler>().navigatorKey,
-                  theme: ThemeData(
-                    fontFamily: 'NeuePlak',
-                    primarySwatch: Colors.blue,
+                return DialogManager(
+                    navigatorKey: locator<NavigationHandler>().navigatorKey,
+            dialogKey: locator<DialogHandler>().dialogKey,
+                     onGenerateDialog: DialogRouteGenerator.onGenerateDialogRoute,
+                  child: MaterialApp(
+                    title: 'Flutter Demo',
+                    navigatorKey: locator<NavigationHandler>().navigatorKey,
+                    theme: ThemeData(
+                      fontFamily: 'NeuePlak',
+                      primarySwatch: Colors.blue,
+                    ),
+                    onGenerateRoute: RouteGenerator.onGenerateRoute,
+                    initialRoute: splashScreenViewRoute,
                   ),
-                  onGenerateRoute: RouteGenerator.onGenerateRoute,
-                  initialRoute: splashScreenViewRoute,
                 );
               });
         });

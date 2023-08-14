@@ -1,4 +1,7 @@
+import 'package:aquayar_driver/handlers/dialog_handler.dart';
+import 'package:aquayar_driver/navigation/finish_order_dialog_args.dart';
 import 'package:aquayar_driver/shared/shared.dart';
+import 'package:aquayar_driver/utils/locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -378,7 +381,10 @@ class _UndergoingDeliveryViewState extends State<UndergoingDeliveryView> {
                             const Spacer(),
                             Button(
                               text: "Completed",
-                              onPressed: () {},
+                              onPressed: () {
+                                locator<DialogHandler>().showDialog(
+                                    arguments: FinishOrderDialogArgs());
+                              },
                               color: Palette.darkGreen,
                               size: Size(size.width * .6, 36.h),
                             )
