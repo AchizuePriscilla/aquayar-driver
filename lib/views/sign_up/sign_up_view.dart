@@ -324,28 +324,7 @@ class _SignUpStepTwoFormState extends State<SignUpStepTwoForm> {
           "Choose your water tanker size",
           style: TextStyle(fontSize: 15.sp),
         ),
-        SizedBox(
-          height: 40.h,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
-              List<int> tankerSizes = [1500, 2000, 2500, 3000, 4000];
-              return Container(
-                margin: EdgeInsets.only(right: 10.w),
-                child: Chip(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(7.h)),
-                    side: const BorderSide(color: Palette.lightGrey),
-                    backgroundColor: Palette.aquayarWhite,
-                    label: Text(
-                      tankerSizes[index].toString(),
-                      style: AquayarTextStyles.greyBody,
-                    )),
-              );
-            },
-            itemCount: 5,
-          ),
-        ),
+        const WaterTankerSizesList(),
         const InfoRow(info: "This is optional and can be changed"),
         const CustomSpacer(
           flex: 5,
@@ -379,6 +358,7 @@ class _SignUpStepTwoFormState extends State<SignUpStepTwoForm> {
     ));
   }
 }
+
 
 class InfoRow extends StatelessWidget {
   final String info;

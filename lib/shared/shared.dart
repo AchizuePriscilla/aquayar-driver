@@ -10,3 +10,4 @@ export 'password_visibility_icon.dart';
 export 'pin_code_fields.dart';
 export 'flag_prefix_icon.dart';
 export 'custom_dropdown.dart';
+export 'water_tanker_sizes.dart';

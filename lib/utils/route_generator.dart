@@ -25,6 +25,8 @@ class RouteGenerator {
         return _getPageRoute(const VerificationUnderReview());
       case homeViewRoute:
         return _getPageRoute(const HomeView());
+      case editProfileViewRoute:
+        return _getPageRoute(const EditProfileView());
       case mediaUploadViewRoute:
           final mediaUploadArgs = settings.arguments;
 

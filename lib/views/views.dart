@@ -7,3 +7,4 @@ export 'sign_up/media_upload_view.dart';
 export 'sign_up/verification_under_review.dart';
 export 'login/login_view.dart';
 export 'home/home_view.dart';
+export 'profile/edit_profile_view.dart';

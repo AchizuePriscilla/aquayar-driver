@@ -38,12 +38,13 @@ class CustomAppBar extends AppBar {
           actions: actionWidgets,
           backgroundColor: backgroundCOlor ?? Palette.aquayarWhite,
           elevation: 0,
-          title: titleWidget ?? Text(
-            text,
-            style: TextStyle(
-              fontSize: 18.sp,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
+          title: titleWidget ??
+              Text(
+                text,
+                style: TextStyle(
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.w500,
+                    color: Palette.aquayarBlack),
+              ),
         );
 }

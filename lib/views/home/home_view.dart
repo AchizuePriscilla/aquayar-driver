@@ -1,4 +1,5 @@
 import 'package:aquayar_driver/shared/shared.dart';
+import 'package:aquayar_driver/utils/constants.dart';
 import 'package:aquayar_driver/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -235,20 +236,26 @@ class _HomeViewState extends State<HomeView> {
                   const CustomSpacer(
                     flex: 3,
                   ),
-                  const HomeOptions(
+                  HomeOptions(
                     imagePath1: "person",
                     label1: "Edit Profile",
                     imagePath2: "key",
                     label2: "Change Password",
+                    onPressed1: () {
+                      Navigator.pushNamed(context, editProfileViewRoute);
+                    },
+                    onPressed2: () {},
                   ),
                   const CustomSpacer(
                     flex: 2,
                   ),
-                  const HomeOptions(
+                  HomeOptions(
                     imagePath1: "support",
                     label1: "Help & Support",
                     imagePath2: "feedback",
                     label2: "Give Feedback",
+                    onPressed1: () {},
+                    onPressed2: () {},
                   ),
                   const CustomSpacer(
                     flex: 2,
@@ -263,7 +270,19 @@ class _HomeViewState extends State<HomeView> {
                     label: "Delete Account",
                     rowColor: Palette.red,
                     imagePath: "trash",
-                  )
+                  ),
+                  const CustomSpacer(
+                    flex: 6,
+                  ),
+                  Button(
+                    text: "Logout",
+                    onPressed: () {},
+                    outlined: true,
+                    textColor: Palette.red,
+                  ),
+                  const CustomSpacer(
+                    flex: 3,
+                  ),
                 ],
               ),
             ),
@@ -325,13 +344,16 @@ class HomeOptions extends StatelessWidget {
   final String imagePath2;
   final String label1;
   final String label2;
-  const HomeOptions({
-    super.key,
-    required this.imagePath1,
-    required this.imagePath2,
-    required this.label1,
-    required this.label2,
-  });
+  final Function() onPressed1;
+  final Function() onPressed2;
+  const HomeOptions(
+      {super.key,
+      required this.imagePath1,
+      required this.imagePath2,
+      required this.label1,
+      required this.label2,
+      required this.onPressed1,
+      required this.onPressed2});
 
   @override
   Widget build(BuildContext context) {
@@ -343,24 +365,27 @@ class HomeOptions extends StatelessWidget {
           borderRadius: BorderRadius.circular(30.w)),
       child: Column(
         children: [
-          Row(
-            children: [
-              SvgPicture.asset("assets/svgs/$imagePath1.svg"),
-              const CustomSpacer(
-                flex: 3,
-                horizontal: true,
-              ),
-              Text(
-                label1,
-                style: AquayarTextStyles.greyBody.copyWith(fontSize: 16.sp),
-              ),
-              const Spacer(),
-              Icon(
-                Icons.arrow_forward_ios,
-                color: Palette.aquayarGrey,
-                size: 12.h,
-              )
-            ],
+          InkWell(
+            onTap: onPressed1,
+            child: Row(
+              children: [
+                SvgPicture.asset("assets/svgs/$imagePath1.svg"),
+                const CustomSpacer(
+                  flex: 3,
+                  horizontal: true,
+                ),
+                Text(
+                  label1,
+                  style: AquayarTextStyles.greyBody.copyWith(fontSize: 16.sp),
+                ),
+                const Spacer(),
+                Icon(
+                  Icons.arrow_forward_ios,
+                  color: Palette.aquayarGrey,
+                  size: 12.h,
+                )
+              ],
+            ),
           ),
           const CustomSpacer(
             flex: 1,
@@ -371,24 +396,27 @@ class HomeOptions extends StatelessWidget {
           const CustomSpacer(
             flex: 1,
           ),
-          Row(
-            children: [
-              SvgPicture.asset("assets/svgs/$imagePath2.svg"),
-              const CustomSpacer(
-                flex: 3,
-                horizontal: true,
-              ),
-              Text(
-                label2,
-                style: AquayarTextStyles.greyBody.copyWith(fontSize: 16.sp),
-              ),
-              const Spacer(),
-              Icon(
-                Icons.arrow_forward_ios,
-                color: Palette.aquayarGrey,
-                size: 12.h,
-              )
-            ],
+          InkWell(
+            onTap: onPressed2,
+            child: Row(
+              children: [
+                SvgPicture.asset("assets/svgs/$imagePath2.svg"),
+                const CustomSpacer(
+                  flex: 3,
+                  horizontal: true,
+                ),
+                Text(
+                  label2,
+                  style: AquayarTextStyles.greyBody.copyWith(fontSize: 16.sp),
+                ),
+                const Spacer(),
+                Icon(
+                  Icons.arrow_forward_ios,
+                  color: Palette.aquayarGrey,
+                  size: 12.h,
+                )
+              ],
+            ),
           ),
         ],
       ),
