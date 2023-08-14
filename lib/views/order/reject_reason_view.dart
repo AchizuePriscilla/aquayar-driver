@@ -1,8 +1,6 @@
 import 'package:aquayar_driver/shared/shared.dart';
 import 'package:aquayar_driver/utils/text_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class RejectReasonView extends StatefulWidget {
   const RejectReasonView({super.key});

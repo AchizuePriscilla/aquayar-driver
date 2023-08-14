@@ -33,6 +33,8 @@ class RouteGenerator {
         return _getPageRoute(const OrderView());
       case rejectReasonViewRoute:
         return _getPageRoute(const RejectReasonView());
+      case undergoingDeliveryViewRoute:
+        return _getPageRoute(const UndergoingDeliveryView());
       case mediaUploadViewRoute:
           final mediaUploadArgs = settings.arguments;
 

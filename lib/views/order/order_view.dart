@@ -221,7 +221,10 @@ class _OrderViewState extends State<OrderView> {
                             const Spacer(),
                             Button(
                               text: "Click to accept",
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.popAndPushNamed(
+                                    context, undergoingDeliveryViewRoute);
+                              },
                               color: Palette.darkGreen,
                               size: Size(size.width * .6, 36.h),
                             )
@@ -277,27 +280,5 @@ class _OrderViewState extends State<OrderView> {
         ),
       );
     });
-  }
-}
-
-class CustomIcon extends StatelessWidget {
-  final String path;
-
-  const CustomIcon({
-    super.key,
-    required this.path,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 22.h,
-      width: 22.h,
-      padding: EdgeInsets.all(3.h),
-      decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          border: Border.all(color: Palette.lightGrey, width: 1.5)),
-      child: SvgPicture.asset("assets/svgs/$path.svg"),
-    );
   }
 }

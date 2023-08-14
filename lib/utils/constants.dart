@@ -16,3 +16,4 @@ const editProfileViewRoute = 'edit-profile-view';
 const changePasswordViewRoute = 'change-password-view';
 const orderViewRoute = 'order-view';
 const rejectReasonViewRoute = 'reject-reason-view';
+const undergoingDeliveryViewRoute = 'undergoing-delivery-view';
