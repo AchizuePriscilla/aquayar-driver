@@ -1,5 +1,6 @@
 import 'package:aquayar_driver/shared/shared.dart';
 import 'package:flutter/material.dart';
+
 class AquayarTextStyles {
   static TextStyle h1 = TextStyle(
     fontWeight: FontWeight.w400,
@@ -19,10 +20,9 @@ class AquayarTextStyles {
     fontSize: 16.sp,
   );
   static TextStyle body = TextStyle(
-    fontWeight: FontWeight.w400,
-    fontSize: 15.sp,
-    color: Palette.aquayarBlack
-  );
+      fontWeight: FontWeight.w400,
+      fontSize: 15.sp,
+      color: Palette.aquayarBlack);
   static TextStyle body1 = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 3.sp,
@@ -44,5 +44,5 @@ class AquayarTextStyles {
     fontSize: 8.sp,
   );
   static TextStyle greyBody = TextStyle(
-      fontWeight: FontWeight.w400, fontSize: 14.sp, color: Palette.aquayarGrey);
+      fontWeight: FontWeight.w400, fontSize: 15.sp, color: Palette.aquayarGrey);
 }

@@ -1,4 +1,5 @@
 import 'package:aquayar_driver/shared/shared.dart';
+import 'package:aquayar_driver/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -60,19 +61,24 @@ class _OrderViewState extends State<OrderView> {
                 Positioned(
                   right: 10.w,
                   top: 35.h,
-                  child: Container(
-                    width: 95.w,
-                    height: 30.h,
-                    margin: EdgeInsets.symmetric(vertical: 16.h),
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Palette.lightGrey),
-                        borderRadius: BorderRadius.circular(30.w),
-                        color: Palette.aquayarWhite),
-                    child: Center(
-                        child: Text(
-                      "Reject",
-                      style: TextStyle(fontSize: 14.sp),
-                    )),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, rejectReasonViewRoute);
+                    },
+                    child: Container(
+                      width: 95.w,
+                      height: 30.h,
+                      margin: EdgeInsets.symmetric(vertical: 16.h),
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Palette.lightGrey),
+                          borderRadius: BorderRadius.circular(30.w),
+                          color: Palette.aquayarWhite),
+                      child: Center(
+                          child: Text(
+                        "Reject",
+                        style: TextStyle(fontSize: 14.sp),
+                      )),
+                    ),
                   ),
                 ),
                 Positioned(
