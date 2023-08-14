@@ -244,7 +244,9 @@ class _HomeViewState extends State<HomeView> {
                     onPressed1: () {
                       Navigator.pushNamed(context, editProfileViewRoute);
                     },
-                    onPressed2: () {},
+                    onPressed2: () {
+                      Navigator.pushNamed(context, changePasswordViewRoute);
+                    },
                   ),
                   const CustomSpacer(
                     flex: 2,

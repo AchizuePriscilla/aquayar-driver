@@ -11,3 +11,4 @@ export 'pin_code_fields.dart';
 export 'flag_prefix_icon.dart';
 export 'custom_dropdown.dart';
 export 'water_tanker_sizes.dart';
+export 'password_text_field.dart';

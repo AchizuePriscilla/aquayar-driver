@@ -12,14 +12,6 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-  bool _hidePassword = true;
-
-  void toggleVisibility() {
-    setState(() {
-      _hidePassword = !_hidePassword;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return ResponsiveWidget(
@@ -63,14 +55,7 @@ class _LoginViewState extends State<LoginView> {
                       const CustomSpacer(
                         flex: 2,
                       ),
-                      CustomTextField(
-                        obscureText: _hidePassword,
-                        label: "Password",
-                        suffix: PasswordVisibilityIcon(
-                          onPressed: toggleVisibility,
-                          value: _hidePassword,
-                        ),
-                      ),
+                      const PasswordTextField(label: "Password"),
                       const CustomSpacer(
                         flex: 3,
                       ),

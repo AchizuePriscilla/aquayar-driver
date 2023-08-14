@@ -8,3 +8,4 @@ export 'sign_up/verification_under_review.dart';
 export 'login/login_view.dart';
 export 'home/home_view.dart';
 export 'profile/edit_profile_view.dart';
+export 'change_password/change_password_view.dart';

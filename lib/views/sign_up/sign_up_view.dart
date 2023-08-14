@@ -111,13 +111,6 @@ class _SignUpStepOneFormState extends State<SignUpStepOneForm> {
       mask: '###-###-###-####',
       type: MaskAutoCompletionType.eager,
       filter: {"#": RegExp(r'[0-9]')});
-  bool _hidePassword = true;
-
-  void toggleVisibility() {
-    setState(() {
-      _hidePassword = !_hidePassword;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -156,14 +149,7 @@ class _SignUpStepOneFormState extends State<SignUpStepOneForm> {
         const CustomSpacer(
           flex: 2,
         ),
-        CustomTextField(
-          obscureText: _hidePassword,
-          label: "Choose a password",
-          suffix: PasswordVisibilityIcon(
-            onPressed: toggleVisibility,
-            value: _hidePassword,
-          ),
-        ),
+        const PasswordTextField(label: "Choose a password"),
         const CustomSpacer(
           flex: 3,
         ),
@@ -358,7 +344,6 @@ class _SignUpStepTwoFormState extends State<SignUpStepTwoForm> {
     ));
   }
 }
-
 
 class InfoRow extends StatelessWidget {
   final String info;
