@@ -516,16 +516,15 @@ class ItemVerificationWidget extends StatelessWidget {
                 sampleImagePath: sampleMediaPath));
       },
       child: Material(
-        elevation: isVerified ? 4 : 0,
-        shadowColor: Palette.aquayarWhite,
-        borderRadius: BorderRadius.circular(25.w),
+        elevation: 0,
+        borderRadius: BorderRadius.circular(23.w),
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           height: subtitle == null ? 45.h : 60.h,
           decoration: BoxDecoration(
               color: isVerified ? Palette.aquayarWhite : Palette.offWhite,
               border: Border.all(color: Palette.lightGrey),
-              borderRadius: BorderRadius.circular(25.w)),
+              borderRadius: BorderRadius.circular(23.w)),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

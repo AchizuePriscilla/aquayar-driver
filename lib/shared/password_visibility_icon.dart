@@ -18,12 +18,15 @@ class PasswordVisibilityIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onPressed,
-      child: Icon(
-        value ? Icons.visibility_outlined : Icons.visibility_off_outlined,
-        color: color ?? Palette.aquayarBlack,
-        size: size ?? 20.w,
+    return Padding(
+      padding: EdgeInsets.only(right: 10.w),
+      child: GestureDetector(
+        onTap: onPressed,
+        child: Icon(
+          value ? Icons.visibility_outlined : Icons.visibility_off_outlined,
+          color: color ?? Palette.aquayarGrey,
+          size: size ?? 20.w,
+        ),
       ),
     );
   }

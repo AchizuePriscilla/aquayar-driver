@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 class AquayarTextStyles {
   static TextStyle h1 = TextStyle(
-    fontWeight: FontWeight.w400,
-    fontSize: 30.sp,
-  );
+      fontWeight: FontWeight.w600,
+      fontSize: 30.sp,
+      color: Palette.aquayarBlack);
 
   static TextStyle h4 = TextStyle(
     fontWeight: FontWeight.w700,

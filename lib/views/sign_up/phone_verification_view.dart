@@ -13,7 +13,7 @@ class PhoneVerificationView extends StatefulWidget {
 class _PhoneVerificationViewState extends State<PhoneVerificationView> {
   final TextEditingController _controller =
       TextEditingController(text: "208420840230239");
-  
+
   @override
   Widget build(BuildContext context) {
     return ResponsiveWidget(
@@ -39,12 +39,16 @@ class _PhoneVerificationViewState extends State<PhoneVerificationView> {
                   flex: 4,
                 ),
                 CustomTextField(
+                    isBold: true,
                     controller: _controller,
                     label: "Phone number",
                     prefix: const FlagPrefixIcon(),
-                    suffix: const Icon(
-                      Icons.check_circle_outline,
-                      color: Palette.green,
+                    suffix: Padding(
+                      padding: EdgeInsets.only(right: 10.w),
+                      child: const Icon(
+                        Icons.check_circle_outline,
+                        color: Palette.green,
+                      ),
                     )),
                 const Spacer(),
                 Button(

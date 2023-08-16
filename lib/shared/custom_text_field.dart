@@ -25,6 +25,7 @@ class CustomTextField extends StatelessWidget {
   final bool obscureText;
   final bool expands;
   final double? height;
+  final bool isBold;
 
   const CustomTextField({
     Key? key,
@@ -47,6 +48,7 @@ class CustomTextField extends StatelessWidget {
     this.borderColor,
     this.hintColor,
     this.textColor,
+    this.isBold = false,
     this.maxLines,
     this.onTap,
     this.textCapitalization = TextCapitalization.none,
@@ -63,8 +65,8 @@ class CustomTextField extends StatelessWidget {
           Text(
             _label,
             style: TextStyle(
-              fontSize: 15.sp,
-            ),
+                fontSize: 15.sp,
+                fontWeight: isBold ? FontWeight.w600 : FontWeight.w400),
           ),
           const CustomSpacer(
             flex: 1,
@@ -77,11 +79,15 @@ class CustomTextField extends StatelessWidget {
             obscureText: obscureText,
             onTap: onTap,
             readOnly: readOnly,
-            maxLines: maxLines,
+            minLines: expands ? null : 1,
+            maxLines: expands ? null : 1,
             inputFormatters: formatters,
             textCapitalization: textCapitalization,
             cursorColor: Palette.aquayarBlack,
-            style: TextStyle(fontSize: 14.sp, color: textColor),
+            style: TextStyle(
+                fontSize: 14.sp,
+                color: textColor,
+                fontWeight: isBold ? FontWeight.w600 : FontWeight.w400),
             textInputAction: textInputAction,
             autovalidateMode: AutovalidateMode.disabled,
             textAlign: centeredHint! ? TextAlign.center : TextAlign.start,
@@ -98,7 +104,9 @@ class CustomTextField extends StatelessWidget {
               contentPadding: EdgeInsets.symmetric(horizontal: 20.w),
               hintStyle: hintStyle ??
                   TextStyle(
-                      fontSize: 14.sp, color: hintColor ?? Palette.lightGrey),
+                      fontSize: 14.sp,
+                      color: hintColor ?? Palette.lightGrey,
+                      fontWeight: isBold ? FontWeight.w600 : FontWeight.w400),
               enabledBorder: OutlineInputBorder(
                 borderSide: const BorderSide(
                   color: Palette.lightGrey,

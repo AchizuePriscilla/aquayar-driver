@@ -70,7 +70,14 @@ class _RejectReasonViewState extends State<RejectReasonView> {
                         );
                       },
                       itemCount: 5),
-                )
+                ),
+                const CustomSpacer(
+                  flex: 5,
+                ),
+                Button(text: "Send", onPressed: () {}),
+                const CustomSpacer(
+                  flex: 5,
+                ),
               ],
             ),
           );

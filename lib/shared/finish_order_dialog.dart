@@ -17,7 +17,6 @@ class DialogCard extends StatefulWidget {
 }
 
 class _DialogCardState extends State<DialogCard> {
-
   @override
   Widget build(BuildContext context) {
     return DialogBuilder(builder: (dialogKey) {
@@ -29,34 +28,8 @@ class _DialogCardState extends State<DialogCard> {
           borderRadius: BorderRadius.circular(10.w),
         ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              width: 190.w,
-              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
-              decoration: BoxDecoration(
-                  color: Palette.aquayarBlack,
-                  borderRadius: BorderRadius.circular(30.w)),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Amount to be paid by customer",
-                    textAlign: TextAlign.center,
-                    style:
-                        TextStyle(color: Palette.aquayarWhite, fontSize: 14.sp),
-                  ),
-                  const CustomSpacer(
-                    flex: 2,
-                  ),
-                  Text(
-                    "\$2300",
-                    style:
-                        TextStyle(color: Palette.aquayarWhite, fontSize: 32.sp),
-                  )
-                ],
-              ),
-            ),
-            const CustomSpacer(flex: 8),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 15.h),
               decoration: BoxDecoration(
@@ -65,17 +38,27 @@ class _DialogCardState extends State<DialogCard> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: IconButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        icon: const Icon(Icons.close)),
-                  ),
-                  Text(
-                    "Confirm this order",
-                    style: TextStyle(fontSize: 18.sp),
+                  Row(
+                    children: [
+                      Text(
+                        "Confirm this order",
+                        style: TextStyle(
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.w600,
+                          color: Palette.aquayarBlack,
+                        ),
+                      ),
+                      const Spacer(),
+                      IconButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          icon: Icon(
+                            Icons.close,
+                            size: 18.h,
+                            color: Palette.aquayarBlack,
+                          )),
+                    ],
                   ),
                   Text(
                     "Drag the button from left to right to complete this order. Kindly make sure that the correct amount has been paid by the customer through their app.",
@@ -152,7 +135,6 @@ class _DialogCardState extends State<DialogCard> {
                             );
                           },
                           onAccept: (item) {
-                          
                             Navigator.pushReplacementNamed(
                                 context, successfulDeliveryViewRoute);
                           },
@@ -169,3 +151,34 @@ class _DialogCardState extends State<DialogCard> {
     });
   }
 }
+
+  // Positioned(
+  //             bottom: MediaQuery.of(context).size.height * .3,
+  //             child: Container(
+  //               width: 190.w,
+  //               padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+  //               decoration: BoxDecoration(
+  //                   color: Palette.aquayarBlack,
+  //                   borderRadius: BorderRadius.circular(30.w)),
+  //               child: Column(
+  //                 mainAxisAlignment: MainAxisAlignment.center,
+  //                 children: [
+  //                   Text(
+  //                     "Amount to be paid by customer",
+  //                     textAlign: TextAlign.center,
+  //                     style: TextStyle(
+  //                         color: Palette.aquayarWhite, fontSize: 14.sp),
+  //                   ),
+  //                   const CustomSpacer(
+  //                     flex: 2,
+  //                   ),
+  //                   Text(
+  //                     "\$2300",
+  //                     style: TextStyle(
+  //                         color: Palette.aquayarWhite, fontSize: 32.sp),
+  //                   )
+  //                 ],
+  //               ),
+  //             ),
+  //           ),
+         

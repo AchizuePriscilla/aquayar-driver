@@ -1,5 +1,6 @@
 import 'package:aquayar_driver/handlers/dialog_handler.dart';
 import 'package:aquayar_driver/handlers/navigation_handler.dart';
+import 'package:aquayar_driver/shared/palette.dart';
 import 'package:aquayar_driver/utils/constants.dart';
 import 'package:aquayar_driver/utils/dialog_generator.dart';
 import 'package:aquayar_driver/utils/locator.dart';
@@ -29,15 +30,19 @@ class MyApp extends StatelessWidget {
               providers: AppProvider.providers,
               builder: (context, child) {
                 return DialogManager(
-                    navigatorKey: locator<NavigationHandler>().navigatorKey,
-            dialogKey: locator<DialogHandler>().dialogKey,
-                     onGenerateDialog: DialogRouteGenerator.onGenerateDialogRoute,
+                  navigatorKey: locator<NavigationHandler>().navigatorKey,
+                  dialogKey: locator<DialogHandler>().dialogKey,
+                  onGenerateDialog: DialogRouteGenerator.onGenerateDialogRoute,
                   child: MaterialApp(
                     title: 'Flutter Demo',
                     navigatorKey: locator<NavigationHandler>().navigatorKey,
                     theme: ThemeData(
                       fontFamily: 'NeuePlak',
                       primarySwatch: Colors.blue,
+                      textTheme: Theme.of(context).textTheme.apply(
+                          bodyColor: Palette.aquayarBlack,
+                          displayColor: Palette.aquayarBlack,
+                          decorationColor: Palette.aquayarBlack),
                     ),
                     onGenerateRoute: RouteGenerator.onGenerateRoute,
                     initialRoute: splashScreenViewRoute,

@@ -1,8 +1,5 @@
 import 'package:aquayar_driver/shared/shared.dart';
-import 'package:aquayar_driver/utils/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_dialog_manager/flutter_dialog_manager.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -34,17 +31,31 @@ class _RateUserDialogState extends State<RateUserDialog> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: IconButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        icon: const Icon(Icons.close)),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Text(
+                          "Rate the customer",
+                          style: TextStyle(
+                              fontSize: 18.sp,
+                              fontWeight: FontWeight.w600,
+                              color: Palette.aquayarBlack),
+                        ),
+                        Positioned(
+                          right: 0,
+                          child: IconButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              icon: const Icon(Icons.close)),
+                        ),
+                      ],
+                    ),
                   ),
-                  Text(
-                    "Rate the customer",
-                    style: TextStyle(fontSize: 18.sp),
+                  const CustomSpacer(
+                    flex: .5,
                   ),
                   Text(
                     "We take your reviews and complaints very seriously.",

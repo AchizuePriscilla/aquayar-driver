@@ -3,7 +3,6 @@ import 'package:aquayar_driver/shared/shared.dart';
 import 'package:aquayar_driver/utils/constants.dart';
 import 'package:aquayar_driver/utils/locator.dart';
 import 'package:aquayar_driver/utils/text_styles.dart';
-import 'package:aquayar_driver/views/views.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -18,55 +17,26 @@ class SuccessfulOrderView extends StatelessWidget {
           const CustomSpacer(
             flex: 10,
           ),
-          Text(
-            "This trip has been completed successfully!",
-            textAlign: TextAlign.center,
-            style: AquayarTextStyles.h1,
-          ),
-          Text(
-            "Thank you for faster delivery of water to help our community.",
-            textAlign: TextAlign.center,
-            style: AquayarTextStyles.greyBody,
-          ),
-          const CustomSpacer(
-            flex: 5,
-          ),
-          Material(
-            elevation: 3,
-            shape: const CircleBorder(),
-            shadowColor: const Color(0xff030D45).withOpacity(.2),
-            child: Container(
-              height: 90.h,
-              width: 90.h,
-              decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Palette.aquayarWhite,
-                  border: Border.all(color: Palette.lightGrey)),
-              child: Center(
-                child: Container(
-                  height: 64.h,
-                  width: 654.h,
-                  decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      gradient: LinearGradient(
-                          begin: Alignment.bottomCenter,
-                          end: Alignment.topCenter,
-                          colors: [
-                            Color(0xff7BF4C8),
-                            Color(0xff56F1B9),
-                          ])),
-                  child: Icon(
-                    Icons.check,
-                    size: 20.h,
-                    color: Palette.aquayarWhite,
-                  ),
-                ),
-              ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            child: Text(
+              "This trip has been completed successfully!",
+              textAlign: TextAlign.center,
+              style: AquayarTextStyles.h1.copyWith(fontSize: 25.sp),
             ),
           ),
           const CustomSpacer(
-            flex: 3,
+            flex: 1,
           ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            child: Text(
+              "Thank you for faster delivery of water to help our community.",
+              textAlign: TextAlign.center,
+              style: AquayarTextStyles.greyBody,
+            ),
+          ),
+          SvgPicture.asset("assets/svgs/check_circle.svg"),
           Container(
             width: 250.w,
             padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
@@ -87,8 +57,10 @@ class SuccessfulOrderView extends StatelessWidget {
                 ),
                 Text(
                   "+\$2300",
-                  style:
-                      TextStyle(color: Palette.aquayarBlack, fontSize: 32.sp),
+                  style: TextStyle(
+                      color: Palette.aquayarBlack,
+                      fontSize: 32.sp,
+                      fontWeight: FontWeight.w600),
                 ),
                 const CustomSpacer(
                   flex: 1,
@@ -119,7 +91,7 @@ class SuccessfulOrderView extends StatelessWidget {
                     margin:
                         EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
                     padding:
-                        EdgeInsets.symmetric(horizontal: 8.w, vertical: 10.h),
+                        EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
                     decoration: BoxDecoration(
                         color: const Color(0xff5cb0e6),
                         borderRadius: BorderRadius.circular(30.w)),
@@ -130,7 +102,9 @@ class SuccessfulOrderView extends StatelessWidget {
                           "Rate the customer",
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                              color: Palette.aquayarWhite, fontSize: 20.sp),
+                              color: Palette.aquayarWhite,
+                              fontSize: 20.sp,
+                              fontWeight: FontWeight.w600),
                         ),
                         const CustomSpacer(
                           flex: 1,

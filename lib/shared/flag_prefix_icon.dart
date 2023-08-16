@@ -23,7 +23,7 @@ class FlagPrefixIcon extends StatelessWidget {
           ),
           const Spacer(),
           Container(
-            height: 40.h,
+            height: 35.h,
             width: 1,
             color: Palette.lightGrey,
           ),
