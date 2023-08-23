@@ -16,12 +16,12 @@ class AquayarTextStyles {
     fontSize: 20.sp,
   );
   static TextStyle h6 = TextStyle(
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w600,
     fontSize: 16.sp,
   );
   static TextStyle body = TextStyle(
       fontWeight: FontWeight.w400,
-      fontSize: 15.sp,
+      fontSize: 14.sp,
       color: Palette.aquayarBlack);
   static TextStyle body1 = TextStyle(
     fontWeight: FontWeight.w400,

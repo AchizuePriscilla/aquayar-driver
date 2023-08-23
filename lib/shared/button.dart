@@ -59,7 +59,7 @@ class Button extends StatelessWidget {
             text,
             style: TextStyle(
                 fontSize: halfSized ? 14.sp : 14.sp,
-                fontWeight: FontWeight.w400,
+                fontWeight: FontWeight.w500,
                 color: textColor ?? Palette.aquayarWhite),
           );
     return TextButton(
@@ -85,21 +85,25 @@ class Button extends StatelessWidget {
             : null,
       ),
       child: hasIcon
-          ? Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.w),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Spacer(),
-                  child,
-                  const Spacer(),
-                  const Icon(
-                    Icons.arrow_forward_ios,
-                    color: Palette.aquayarWhite,
-                    size: 22,
-                  ),
-                ],
-              ),
+          ? Stack(
+              alignment: Alignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    child,
+                    const CustomSpacer(
+                      flex: 2,
+                      horizontal: true,
+                    ),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      color: textColor,
+                      size: 22,
+                    ),
+                  ],
+                )
+              ],
             )
           : Row(
               mainAxisAlignment: MainAxisAlignment.center,

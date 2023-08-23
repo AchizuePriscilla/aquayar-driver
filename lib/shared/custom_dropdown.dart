@@ -7,6 +7,7 @@ class CustomDropDown<T> extends StatefulWidget {
   final List<DropdownMenuItem<T>> items;
   final Function(dynamic) onchanged;
   final bool hideUnderline;
+  final bool isBold;
   final T? selectedItem;
 
   const CustomDropDown({
@@ -17,6 +18,7 @@ class CustomDropDown<T> extends StatefulWidget {
     required this.onchanged,
     this.hideUnderline = true,
     this.selectedItem,
+    this.isBold = false
   }) : super(key: key);
 
   @override
@@ -44,6 +46,7 @@ class CustomDropDownState extends State<CustomDropDown> {
             _label,
             style: TextStyle(
               fontSize: 15.sp,
+              fontWeight: widget.isBold ? FontWeight.w600 : FontWeight.w400
             ),
           ),
           const CustomSpacer(

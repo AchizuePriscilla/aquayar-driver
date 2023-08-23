@@ -14,3 +14,4 @@ export 'water_tanker_sizes.dart';
 export 'password_text_field.dart';
 export 'custom_icon.dart';
 export 'rate_user_dialog.dart';
+export 'add_withdrawal_account_dialog.dart';

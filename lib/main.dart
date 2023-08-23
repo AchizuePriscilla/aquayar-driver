@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
                   dialogKey: locator<DialogHandler>().dialogKey,
                   onGenerateDialog: DialogRouteGenerator.onGenerateDialogRoute,
                   child: MaterialApp(
-                    title: 'Flutter Demo',
+                    title: 'Aquayar Driver',
                     navigatorKey: locator<NavigationHandler>().navigatorKey,
                     theme: ThemeData(
                       fontFamily: 'NeuePlak',

@@ -6,7 +6,6 @@ import 'package:aquayar_driver/utils/constants.dart';
 import 'package:aquayar_driver/utils/locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dialog_manager/flutter_dialog_manager.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DialogRouteGenerator {
   ///Generates routes, extracts and passes navigation arguments.
@@ -22,6 +21,8 @@ class DialogRouteGenerator {
         break;
       case rateUserDialogRoute:
         return const RateUserDialog();
+      case addWithdrawalAccountDialogRoute:
+        return const AddWithdrawalAccountDialog();
 
       default:
         final request = settings.arguments;

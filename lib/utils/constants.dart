@@ -17,7 +17,9 @@ const changePasswordViewRoute = 'change-password-view';
 const rejectReasonViewRoute = 'reject-reason-view';
 const undergoingDeliveryViewRoute = 'undergoing-delivery-view';
 const successfulDeliveryViewRoute = 'successful-delivery-view';
+const withdrawBalanceViewRoute = 'withdraw-balance-view';
 
 //Dialogs
 const basicDialogRoute = 'basic-dialog';
 const rateUserDialogRoute = 'rate-user-dialog';
+const addWithdrawalAccountDialogRoute = 'add-witdrawal-account-dialog';

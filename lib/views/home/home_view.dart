@@ -164,7 +164,7 @@ class _HomeViewState extends State<HomeView> {
                 ),
                 Container(
                   padding: EdgeInsets.only(
-                      left: 20.w, top: 8.h, bottom: 8.h, right: 10.w),
+                      left: 20.w, top: 15.h, bottom: 15.h, right: 20.w),
                   decoration: BoxDecoration(
                       color: Palette.aquayarBlack,
                       borderRadius: BorderRadius.circular(20.h)),
@@ -192,64 +192,25 @@ class _HomeViewState extends State<HomeView> {
                           const CustomSpacer(
                             flex: 1,
                           ),
-                          Container(
-                            height: 20.h,
-                            padding: EdgeInsets.symmetric(horizontal: 10.w),
-                            decoration: BoxDecoration(
-                                color: Palette.aquayarWhite,
-                                borderRadius: BorderRadius.circular(20.w)),
-                            child: const Center(
-                                child: Text(
-                              "Withdraw Balance",
-                              style: TextStyle(color: Palette.aquayarBlack),
-                            )),
-                          )
                         ],
                       ),
                       const Spacer(),
-                      Container(
-                        width: MediaQuery.of(context).size.width * .41,
-                        padding: EdgeInsets.only(
-                            left: 15.w, top: 10.h, bottom: 10.h, right: 25.w),
-                        decoration: BoxDecoration(
-                            color: const Color(0xffFFDBDB),
-                            borderRadius: BorderRadius.circular(20.h)),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Debt wallet",
-                              style: TextStyle(
-                                  fontSize: 13.sp, color: Palette.aquayarBlack),
-                            ),
-                            const CustomSpacer(
-                              flex: 1,
-                            ),
-                            Text(
-                              _isWalletVisible ? "\$24,000.45" : "*****",
-                              style: TextStyle(
-                                  fontSize: 18.sp,
-                                  fontWeight: FontWeight.w600,
-                                  color: Palette.aquayarBlack),
-                            ),
-                            const CustomSpacer(
-                              flex: 1,
-                            ),
-                            Container(
-                              height: 20.h,
-                              width: 70.w,
-                              padding: EdgeInsets.symmetric(horizontal: 10.w),
-                              decoration: BoxDecoration(
-                                  color: Palette.aquayarWhite,
-                                  borderRadius: BorderRadius.circular(20.w)),
-                              child: const Center(
-                                  child: Text(
-                                "Pay debt",
-                                style: TextStyle(color: Palette.aquayarBlack),
-                              )),
-                            )
-                          ],
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(
+                              context, withdrawBalanceViewRoute);
+                        },
+                        child: Container(
+                          height: 20.h,
+                          padding: EdgeInsets.symmetric(horizontal: 10.w),
+                          decoration: BoxDecoration(
+                              color: Palette.aquayarWhite,
+                              borderRadius: BorderRadius.circular(20.w)),
+                          child: const Center(
+                              child: Text(
+                            "Withdraw Balance",
+                            style: TextStyle(color: Palette.aquayarBlack),
+                          )),
                         ),
                       )
                     ],
@@ -327,7 +288,7 @@ class _HomeViewState extends State<HomeView> {
                 const HomeOptionsRow(
                   label: "Delete Account",
                   rowColor: Palette.red,
-                  imagePath: "trash",
+                  imagePath: "red_trash",
                 ),
                 const CustomSpacer(
                   flex: 6,
